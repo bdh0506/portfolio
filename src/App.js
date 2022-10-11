@@ -1,14 +1,14 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+console.log('test');
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Brandon's Portfolio
-        </p>
+        <p>Brandon&apos;s Portfolio</p>
         <a
           className="App-link"
           href="https://reactjs.org"

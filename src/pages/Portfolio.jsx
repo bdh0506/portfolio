@@ -9,16 +9,10 @@ function Portfolio() {
   // const email1 = Emails.Content;
 
   const emails = [];
-  let i = 0;
+
   Object.keys(Emails.UA_Emails).forEach((key) => {
     emails.push(Emails.UA_Emails[key]);
-    console.log(`in portfolio key ${key}`);
-    console.log(`in portfolio name ${emails[i].name}`);
-    console.log(`in portfolio path ${emails[i].path}`);
-    // eslint-disable-next-line no-plusplus
-    i++;
   });
-  console.log(`in portfolio name final ${emails[0].path}`);
   return (
     <div>
       <h2>Portfolio</h2>

@@ -1,4 +1,14 @@
 {
-    "Name": "Email1",
-    "Content": "<iframe src={`${process.env.PUBLIC_URL}/emails/UA_EM1.html`} height='800' width='550' title='UA Email 1'/>"
+    "UA_Emails": {
+        "1": {
+            "name": "UA_Rock",
+            "path": "/emails/UA_EM1.html"
+        },
+        "2" : {
+            "name": "UA_Rock2",
+            "path": "/emails/UA_EM1.html"
+        }
+       
+    }
+
 }

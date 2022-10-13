@@ -1,18 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function EmailContainer({ content }) {
-  console.log(`emailContainer ${content}`);
+function EmailContainer({ emailPath, name }) {
   return (
     <div className="email-container">
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <iframe
+        src={`${process.env.PUBLIC_URL}${emailPath}`}
+        height="800"
+        width="600"
+        title={name}
+      />
     </div>
   );
 }
 EmailContainer.propTypes = {
-  content: PropTypes.node,
+  emailPath: PropTypes.node,
+  name: PropTypes.string,
 };
 EmailContainer.defaultProps = {
-  content: '',
+  emailPath: '',
+  name: '',
 };
 export default EmailContainer;

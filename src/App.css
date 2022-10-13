@@ -1,15 +1,40 @@
-.App {
-  text-align: center;
-}
-
 /*Contents
-1. Email Styles
+1. Header
+2. Email
 
 */
+body {
+  background-color: #feffff;
+}
 
-/*Email Styles */
+/*Header */
+.main-header {
+  background-image: url(https://i.imgur.com/0epctPq.png);
+  background-repeat: no-repeat;
+  background-size: auto 150px;
+  height: 150px;
+}
+
+.main-header div {
+  font-size: 50px;
+  padding: .4em 0 0 3em;
+}
+
+/*Header End*/
+
+/*Email */
 .email-container{
   border: 1px solid #000001;
   width: 600px;
   height: 800px;
+}
+/*Email End */
+
+/*Mobile Styles */
+@media only screen and (max-width: 1200px) {
+
+}
+
+@media only screen and (max-width: 576px) {
+
 }

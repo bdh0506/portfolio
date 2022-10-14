@@ -1,33 +1,53 @@
+/* eslint-disable react/jsx-curly-newline */
+/* eslint-disable implicit-arrow-linebreak */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function HeaderNav() {
   return (
     <div>
       <div className="main-header">
-        <div>Brandon Harmon &mdash; Developer Portfolio</div>
+        <div>
+          Brandon Harmon
+          <span> &mdash; Developer Portfolio</span>
+        </div>
       </div>
 
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link className="navbar-brand" to="/">
+      <nav className="navbar navbar-expand-lg navbar-dark navbar-green px-5">
+        <NavLink className="navbar-brand" to="/portfolio">
           WELCOME
-        </Link>
+        </NavLink>
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item active">
-              <Link className="nav-link" to="/portfolio">
+            <li className="nav-item px-2">
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? 'active' : ''}`
+                }
+                to="/portfolio"
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/dev-portfolio">
+            <li className="nav-item px-2">
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? 'active' : ''}`
+                }
+                to="/dev-portfolio"
+              >
                 Portfolio
-              </Link>
+              </NavLink>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
+            <li className="nav-item px-2">
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? 'active' : ''}`
+                }
+                to="/contact"
+              >
                 Contact
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

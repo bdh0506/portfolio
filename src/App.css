@@ -1,10 +1,25 @@
 /*Contents
 1. Header
-2. Email
+2. Homepage
+3. Email
+
+
+
 
 */
+
+/*Color Scheme */
+:root {
+  --cs-dark: #17252A;
+  --cs-dark-ac: #2B7A78;
+  --cs-primary: #3AAFA9;
+  --cs-light-ac: #DEF2F1;
+  --cs-light: #FEFFFF;
+}
+
+
 body {
-  background-color: #feffff;
+  background-color: #F3FFFF;
 }
 
 /*Header */
@@ -18,9 +33,76 @@ body {
 .main-header div {
   font-size: 50px;
   padding: .4em 0 0 3em;
+  color: var(--cs-dark);
+  font-weight: 700;
 }
 
+.navbar-green {
+ background-color: var(--cs-primary);
+ font-size: 1.5em;
+}
+
+.navbar-green a{
+ color: var(--cs-light-ac);
+ }
+
+ .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link{
+  color: var(--cs-light);
+  }
+
+ .navbar-green a:hover{
+  color: var(--cs-light);
+  }
+
 /*Header End*/
+
+  /*Homepage */
+  .profile-img img {
+    width: 550px;
+    border: 2px solid var(--cs-dark-ac);
+    box-shadow: 5px 5px 10px var(--cs-primary)
+  }
+
+  .bio-text {
+    color: #17252A;
+    text-align: center;
+    padding: 0 60px 0 60px;
+    font-size: 1.3em;
+  }
+
+  .skills-wrapper {
+    background: url(https://i.imgur.com/gucxyIC.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    padding: 100px 0px 70px 0px;
+    position: relative;
+    margin: 80px 0 0 0;
+  }
+
+  .skills-wrapper:before {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    background-color: rgb(58, 175, 169, .5);
+  }
+
+  .skills-box {
+    color: var(--cs-light);
+    font-size: 1.4em;
+    margin: 60px 0 60px 0;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /*Homepage End*/
+
 
 /*Email */
 .email-container{
@@ -30,11 +112,68 @@ body {
 }
 /*Email End */
 
+  /*Footer */
+  .main-footer {
+    background-color: var(--cs-primary);
+    text-align: center;
+    padding: 100px 0;
+  }
+  .main-footer a {
+  text-decoration: none;
+  color: var(--cs-light-ac);
+  }
+
+  .main-footer a:hover {
+
+    color: var(--cs-light);
+    }
+  /*Footer End*/
+
 /*Mobile Styles */
 @media only screen and (max-width: 1200px) {
+    /*Header */
+    .main-header div {
+      font-size: 45px;
+    }
+    /*Header End*/
+}
 
+@media only screen and (max-width: 992px) {
+    /*Header */
+  .main-header div {
+    font-size: 32px;
+    padding: .7em 0 0 4em;
+  }
+  /*Header End*/
 }
 
 @media only screen and (max-width: 576px) {
+  /*Header */
+  .main-header div {
+    font-size: 26px;
+    padding: .5em 0 0 3.5em;
+  }
+  .main-header div span {
+    display: none;
+  }
 
+  .main-header {
+    background-size: auto 100px;
+    height: 100px;
+  }
+  /*Header End*/
+  
+  /*Email */
+  .email-container{
+    border: 1px solid var(--cs-dark);
+    width: 100%;
+    max-width: 576px;
+    height: 800px;
+  }
+
+  .email-iframe {
+    width: 100%;
+  }
+  /*Email End */
+  
 }

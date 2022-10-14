@@ -16,14 +16,13 @@ function Portfolio() {
   return (
     <div>
       <h2>Portfolio</h2>
-      <div className="container">
-        <div className="row">
-          {emails.map((e) => (
-            <div className="col col-lg-6">
-              <EmailContainer key={e.name} name={e.name} emailPath={e.path} />
-            </div>
-          ))}
-          {/* <div className="col col-lg-6">
+      <div className="row">
+        {emails.map((e) => (
+          <div key={e.name} className="col-xl-6 col-lg-12">
+            <EmailContainer key={e.name} name={e.name} emailPath={e.path} />
+          </div>
+        ))}
+        {/* <div className="col col-lg-6">
             <EmailContainer content={email1} />
           </div>
           <div className="col col-lg-6">
@@ -34,7 +33,6 @@ function Portfolio() {
               title="UA Email 1"
             />
           </div> */}
-        </div>
       </div>
     </div>
   );

@@ -60,7 +60,9 @@ body {
   .profile-img img {
     width: 550px;
     border: 2px solid var(--cs-dark-ac);
-    box-shadow: 5px 5px 10px var(--cs-primary)
+    box-shadow: 5px 5px 10px var(--cs-primary);
+    margin: 0 auto;
+    text-align: center;
   }
 
   .bio-text {
@@ -106,7 +108,7 @@ body {
 
 /*Email */
 .email-container{
-  border: 1px solid #000001;
+  border: 1px solid var(--cs-dark);
   width: 600px;
   height: 800px;
 }

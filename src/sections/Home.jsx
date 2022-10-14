@@ -5,8 +5,8 @@ function Home() {
     <div>
       <h2>Homepage</h2>
       <div className="row pt-2">
-        <div className="col-xl-6 col-lg-12 profile-img">
-          <img src="https://i.imgur.com/mL03q1v.png" alt="Brandon Harmon" />
+        <div className="col-xl-6 col-lg-12 profile-img mb-5 d-flex justify-content-center">
+          <img src="https://i.imgur.com/HBh2xZE.png" alt="Brandon Harmon" />
         </div>
         <div className="bio-text col-xl-6 col-lg-12">
           Lorem ipsum dolor sit amet, putent abhorreant est in, admodum corpora
@@ -21,7 +21,7 @@ function Home() {
           gloriatur his eu.
         </div>
       </div>
-      <div className="row skills-wrapper">
+      <div className="row skills-wrapper mb-5">
         <div className="container">
           <div className="row text-center skills-box">
             <div className="col-md-6 col-sm-12">
@@ -37,7 +37,6 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="row pt-5" />
     </div>
   );
 }

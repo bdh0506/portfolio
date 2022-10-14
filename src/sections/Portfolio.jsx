@@ -18,21 +18,8 @@ function Portfolio() {
       <h2>Portfolio</h2>
       <div className="row">
         {emails.map((e) => (
-          <div key={e.name} className="col-xl-6 col-lg-12">
-            <EmailContainer key={e.name} name={e.name} emailPath={e.path} />
-          </div>
+          <EmailContainer key={e.name} name={e.name} emailPath={e.path} />
         ))}
-        {/* <div className="col col-lg-6">
-            <EmailContainer content={email1} />
-          </div>
-          <div className="col col-lg-6">
-            <iframe
-              src={`${process.env.PUBLIC_URL}/emails/UA_EM1.html`}
-              height="800"
-              width="550"
-              title="UA Email 1"
-            />
-          </div> */}
       </div>
     </div>
   );

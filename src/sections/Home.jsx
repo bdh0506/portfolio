@@ -3,8 +3,7 @@ import React from 'react';
 function Home() {
   return (
     <div>
-      <h2>Homepage</h2>
-      <div className="row pt-2">
+      <div className="row pt-5">
         <div className="col-xl-6 col-lg-12 profile-img mb-5 d-flex justify-content-center">
           <img src="https://i.imgur.com/HBh2xZE.png" alt="Brandon Harmon" />
         </div>

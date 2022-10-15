@@ -17,11 +17,41 @@
   --cs-light: #FEFFFF;
 }
 
-
+ /*Site Wide */
 body {
   background-color: #F3FFFF;
 }
 
+ .btn-main {
+  background-color: var(--cs-dark);
+  color: var(--cs-light-ac); 
+  border-radius: 1.5rem;
+  border: 2px solid var(--cs-light-ac);
+ }
+
+ .btn-main:hover {
+  color: var(--cs-light);
+  background-color: var(--cs-dark);
+  border: 2px solid var(--cs-light);
+ }
+
+ .btn-main:not(:disabled):not(:disabled):focus{
+  color: var(--cs-light);
+  background-color: var(--cs-dark);
+  border: 2px solid var(--cs-light);
+  -webkit-box-shadow: 0px 0px 10px var(--cs-light);
+  box-shadow: 0px 0px 10px var(--cs-light);
+
+ }
+
+ .btn-main:not(:disabled):not(:disabled):active {
+  color: var(--cs-light);
+  background-color: var(--cs-dark);
+  border: 2px solid var(--cs-light);
+  -webkit-box-shadow: 0px 0px 10px var(--cs-light);
+  box-shadow: 0px 0px 10px var(--cs-light);
+} 
+ /*Site Wide End */
 /*Header */
 .main-header {
   background-image: url(https://i.imgur.com/0epctPq.png);
@@ -62,7 +92,6 @@ body {
     border: 2px solid var(--cs-dark-ac);
     box-shadow: 5px 5px 10px var(--cs-primary);
     margin: 0 auto;
-    text-align: center;
   }
 
   .bio-text {
@@ -96,7 +125,7 @@ body {
   }
 
   .skills-box {
-    color: var(--cs-light);
+    color: var(--cs-light-ac);
     font-size: 1.4em;
     margin: 60px 0 60px 0;
     position: relative;

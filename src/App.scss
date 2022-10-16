@@ -1,7 +1,9 @@
 /*Contents
 1. Header
 2. Homepage
-3. Email
+3. Portfolio
+4. Email
+5. Footer
 
 
 
@@ -173,6 +175,9 @@ body {
   overflow: hidden;
 }
 
+.email-iframe {
+  overflow: hidden;
+}
 /*Email End */
 
   /*Footer */
@@ -199,6 +204,13 @@ body {
       font-size: 45px;
     }
     /*Header End*/
+
+    /*Email */
+    .email-container:focus {
+      overflow: hidden;
+    }
+    
+    /*Email End*/
 }
 
 @media only screen and (max-width: 992px) {

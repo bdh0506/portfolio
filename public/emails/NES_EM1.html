@@ -1,0 +1,550 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="x-apple-disable-message-reformatting" />
+<title>Nespresso</title>
+<!--[if gte mso 9]><xml>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+  <o:PixelsPerInch>96</o:PixelsPerInch>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<style type="text/css">
+/* vvvvv CLIENT-SPECIFIC STYLES vvvvv */
+table, td {
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+}
+img {
+  -ms-interpolation-mode: bicubic;
+}
+  
+/*Fixes blue links in iOS*/
+a[x-apple-data-detectors] {
+color: inherit !important;
+text-decoration: none !important;
+font-size: inherit !important;
+font-family: inherit !important;
+font-weight: inherit !important;
+line-height: inherit !important;
+}
+  
+/*ReadMsgBody - Forces Hotmail to display at full width. ExternalClass - Hotmail table centering fix.*/
+.ReadMsgBody, .ExternalClass {
+  width: 100%;
+}
+/*Forces Hotmail to display normal line spacing*/
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+  line-height: 100%;
+}
+/* vvvvv RESET STYLES vvvvv */
+/*Resolves the issue when iPhone links dates, addresses, phone numbers*/
+a {
+  color: inherit;
+  text-decoration: none;
+}
+/*This resolves the Outlook 07, 10, and Gmail td padding issue fix*/
+table {
+  border-collapse: collapse !important;
+}
+/*This Resets Body Styles*/
+body {
+  height: 100% !important;
+  margin: 0;
+  padding: 0px 0px 0px 0px;
+  width: 100% !important;
+}
+/*This CSS will make your web text look clean, crisp, and will not adjust text 13px and lower in mobile devices.*/
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+}
+.gmailfix {
+  display: none;
+  display: none!important;
+}
+.pflag {
+  font-size: 14px !important;
+}
+.service {
+  font-size: 13px !important;
+}
+div, button{
+  vertical-align: bottom;
+}
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+.hidden {
+ display: none !important;
+}
+
+.show {
+ display: block !important;
+ margin: 0;
+ padding: 0;
+ overflow: visible !important;
+ width: auto !important;
+ max-height: inherit !important;
+ max-width: inherit !important;
+ border: none !important;
+}
+
+.noScale {
+ width: auto !important;
+ height: auto !important;
+}
+}
+
+</style>
+<!-- %%[
+var @subjectline, @emailversion, @subjectlineA, @subjectlineB, @phoneNumber
+
+set @sline = sline
+set @segmentcode = segmentcode
+set @membernumber = membernumber
+set @RandomNumber = random(1,1000000)
+set @custom_text_5 = custom_text_5
+
+if empty(firstname) or firstname == "UNK" or firstname == "unk" then
+  set @firstname = "UNK"
+else
+  set @firstname = ProperCase(firstname)
+endif
+
+/*Nearest BTQ Variable store address look up*/
+set @closeststorerow= LookupRows("BTQ_Lookup" ,"closeststoreid",closeststoreid)
+if Rowcount(@closeststorerow) > 0 THEN
+Set @row = Row(@closeststorerow,1)
+set @StoreName = Field(@row, "Store_Name")
+set @StreetAddress = Field(@row, "Street_Address")
+set @City = Field(@row, "City")
+set @State = Field(@row, "State")
+set @Zip_Code = Field(@row, "Zip_Code")
+set @closeststoreid = Field(@row, "closeststoreid")
+ENDIF
+
+
+/* =================================================== */
+/* Here's where you start your AMPScript configuration */
+/* Here's where you start your AMPScript configuration */
+/* Here's where you start your AMPScript configuration */
+/* Here's where you start your AMPScript configuration */
+/* =================================================== */
+
+
+
+/*Please do fill below five fields according to the ET Variables tab in CWS*/
+
+set @area_of_business = "B2C"
+set @send_type = "Ad Hoc" 
+set @offer_type = "Non-Offer"
+set @content = "Capsules"
+set @testing = "Yes"
+
+
+/* Campaign Code (Campaign ID) */
+set @campaign_code = "IIIS"
+
+
+/* Set your preheader here */
+set @preheader_text = "Enjoy Stormio Boost, enhanced with additional caffeine."
+
+/*Subjectline - Please remove if SL is not dynamic*/
+
+set @subjectline = "20% more caffeine. 100% delicious."
+
+
+/* Main color for the body */
+set @content_bgcolor = "#ffffff"
+    
+/* SMS, BTQ Pickup and Same Day Delivery Slices*/ 
+/* SMS module include: Y, N*/ 
+set @SMS_module = "Y"
+    
+/* Module color palette: dark grey (626162), light grey(eaeaea), gold(bc9b6a), white(ffffff) */
+set @module_bgcolor = "eaeaea"
+
+if @module_bgcolor == "ffffff" or @module_bgcolor == "eaeaea" then
+    set @module_textcolor = "black"
+elseif @module_bgcolor == "626162" or @module_bgcolor == "bc9b6a" then
+    set @module_textcolor = "white"
+endif
+
+/* Which Nav bar do you want? The default is CASR*/
+/* CSR | Machines | CAR | CASR | CMA |B2B */
+set @navBar = "CASR"
+
+/* Versioning */
+if @segmentcode == "VFACG" or @segmentcode == "VAMO" or @segmentcode == "VAMB" or @segmentcode == "VASB" or @segmentcode == "VAM" 
+or @segmentcode == "VAMP" or @segmentcode == "VAA" then
+ 
+  set @emailversion = "V1"
+  set @OLVL = "VL"
+  
+  set @recycling_url = "https://www.nespresso.com/us/en/order/accessories/vertuo/recycling-bag?"
+  
+  /*Please fill utm_source for tracking*/
+  set @utm_source = "utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA"
+    
+else RaiseError("Segment Code not recognized", true) endif
+
+/*utm tracking*/
+set @tracking = concat("utm_source=",@utm_source)
+
+
+
+/* ===================== */
+/* END of your AMPScript */
+/* END of your AMPScript */
+/* END of your AMPScript */
+/* END of your AMPScript */
+/* ===================== */
+
+/*There're two kinds of layout for the social icons, please fill the number to select one for your campaign, the default is 1, if you want another style please fill with 2*/
+
+set @socialVersion = "1"
+
+set @subscription_url  = "https://www.nespresso.com/us/en/standing-orders?"
+set @machines_url = "https://www.nespresso.com/us/en/machinelistblock?"
+
+
+
+if @navBar == "Machines" then
+  set @nespresso_url = "https://www.nespresso.com/us/en/home?"
+else
+  set @nespresso_url = "https://www.nespresso.com/us/en?"
+endif
+
+
+if @OLVL == "OL" then
+  set @phoneNumber_url = "tel:18005621465"
+  set @phoneNumber = "1.8&#8203;0&#8203;0.5&#8203;6&#8203;2.1&#8203;4&#8203;6&#8203;5"
+  
+  /* Fill urls for OL */
+  set @coffee_url = "https://www.nespresso.com/us/en/original-coffee-pods?"
+  set @accessories_url = "https://www.nespresso.com/us/en/accessories?"
+  
+elseif @OLVL == "VL" then
+  set @phoneNumber_url = "tel:18779646299"
+  set @phoneNumber = "1.8&#8203;7&#8203;7.9&#8203;6&#8203;4.6&#8203;2&#8203;9&#8203;9"
+  
+  /* Fill urls for VL */
+  set @coffee_url = "https://www.nespresso.com/us/en/vertuo-coffee-pods?"
+  set @accessories_url = "https://www.nespresso.com/us/en/accessories?"
+  
+endif
+
+
+if recip_type=="proof" then
+set @subjectline = concat("[",@campaign_code,"-",emailtype,"-",@emailversion,"-",sline,"-",@segmentcode,"-",recip_type,"] ", @subjectline)
+endif
+ 
+]%%
+  %%[
+
+
+/*PlacementID is used for the Template which is often driven by Segmentcode */
+set @placementid = Attributevalue("SEGMENTCODE")
+
+/*creativeid is the Population (OL vs VL) */
+set @creativeid = Attributevalue("Technology")
+
+]%% -->
+</head>
+<body style="margin:0; padding:0; border:none;" border="0">
+ 
+    <!-- Visually Hidden Preheader Text : BEGIN -->
+      <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;"> Enjoy Stormio Boost, enhanced with additional caffeine. </div>
+      <!-- Visually Hidden Preheader Text : END --> 
+      <!-- Preview Text Spacing Hack : BEGIN -->
+      <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;"> &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp; </div>
+      <!-- Preview Text Spacing Hack : END --> 
+  
+<!--BEGIN GMAIL FIX-->
+<!-- <table cellpadding="0" cellspacing="0" border="0" align="center" style="table-layout: fixed;">
+  <tr>
+    <td><div class="gmailfix" style="white-space:nowrap; font:15px courier; line-height:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div></td>
+  </tr>
+</table> -->
+<!--END GMAIL FIX--> 
+<!--Start Moveable Ink Campaign Code--> 
+  
+<!--END Moveable Ink Campaign Code--> 
+<!--BEGIN TRACKING DIV-->
+<table cellpadding="0" cellspacing="0" border="0" align="center" style="table-layout: fixed;">
+  <tr>
+    <td><div style="display:none;">
+        <custom name="opencounter" type="tracking">
+
+        <!-- ============================================== -->
+        <!-- Replace this whole block with your Litmus code -->
+        <!-- <style data-ignore-inlining>@media (prefers-color-scheme: dark) { #_t::before {content:url('https://rh5eqapn.emltrk.com/v2/rh5eqapn?rd&i=%%subscriberid%%');}} @media (prefers-color-scheme: light) { #_t::before {content:url('https://rh5eqapn.emltrk.com/v2/rh5eqapn?rl&i=%%subscriberid%%');}} @media print{ #_t {background-image:url('https://rh5eqapn.emltrk.com/v2/rh5eqapn?p&i=%%subscriberid%%');}} div.OutlookMessageHeader {background-image:url('https://rh5eqapn.emltrk.com/v2/rh5eqapn?f&i=%%subscriberid%%')} table.moz-email-headers-table {background-image:url('https://rh5eqapn.emltrk.com/v2/rh5eqapn?f&i=%%subscriberid%%')} blockquote #_t {background-image:url('https://rh5eqapn.emltrk.com/v2/rh5eqapn?f&i=%%subscriberid%%')} #MailContainerBody #_t {background-image:url('https://rh5eqapn.emltrk.com/v2/rh5eqapn?f&i=%%subscriberid%%')}</style><div id="_t"></div>
+<img src="https://rh5eqapn.emltrk.com/v2/rh5eqapn?i=%%subscriberid%%" width="1" height="1" border="0" alt="" /> -->
+        <!-- ============================================== -->
+        
+        <!-- ================================================= -->
+        <!-- Replace this whole block with your GA Pixel img   -->
+        <!-- ================================================= -->
+        <!-- <img src="https://www.google-analytics.com/collect?v=1&t=event&ni=1&tid=UA-77240692-80&cid=%%membernumber%%&ec=User%20Engagement&ea=User%20Open%20Email&el=Opened%20Email%20%%membernumber%%&cm=EM&cs=Email&dt=%2Femail&dl=%2Femail&cn=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA&cc=EM_Merkle_VET_IN_Yes_CRM_VL_Reach&cm29=1&cd182=true" /> -->
+
+        <!--Start with Floodlight Pixel img, don't need to edit-->
+      <!-- <img src="https://ad.doubleclick.net/ddm/trackimp/N6264.171798.NESPRESSO.COM/B27025785.324082363;dc_trk_aid=516169071;dc_trk_cid=163475701;ord=%%=v(@RandomNumber)=%%;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ltd=?" border="0" width="1" height="1" alt="Advertisement"> -->
+        <!--End with Floodlight Pixel img, don't need to edit-->
+    
+
+      </div></td>
+  </tr>
+</table>
+<!--END TRACKING DIV--> 
+<!--BEGIN CONTENT - This 100% table centers the email-->
+
+<!-- Social icon is now tranparent, if your email has a big background color other than white, change it in below table. -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff">
+  <tr>
+
+    <td align="center" width="500"><!--BEGIN 500px TABLE - This is contains the email content-->
+      
+      <table align="center" cellpadding="0" cellspacing="0" border="0" width="500" style="min-width:500px; max-width:500px;">
+        <!--BEGIN PREHEADER-->
+        <tr>
+          <td align="center" width="500" style="padding:8px 0 0 0;"><table cellpadding="0" cellspacing="0" border="0" width="500">
+              <tr>
+                <td width="20" style="font-size:0; line-height:1;"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/288ed51a-648e-4aee-8919-0e12caaf9e9e.gif" width="20" height="1" border="0" alt="" style="display:block;" /></td>
+                <td align="center" valign="top" style="font-family:Tahoma, Geneva, sans-serif; font-size:11px; mso-line-height-rule:exactly; line-height:13px; color:#000001; ">
+                  Enjoy Stormio Boost, enhanced with additional caffeine. &nbsp;|&nbsp; <a href="%%view_email_url%%" alias="Online version" style="color:#000001; text-decoration:underline; line-height:13px;">View&nbsp;Online</a>
+                </td>
+                <td width="20" style="font-size:0; line-height:1;"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/288ed51a-648e-4aee-8919-0e12caaf9e9e.gif" width="20" height="1" border="0" alt="" style="display:block;" /></td>
+              </tr>
+            </table></td>
+        </tr>
+        <!--END PREHEADER--> 
+        
+        <!--BEGIN NAV MENU-->
+        <tr>
+          <td align="left" valign="top" style="padding:14px 0 0 0;">
+              <!--BEGIN NAV MODULE-->
+             
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#8c8c8c; font-size:14px; padding-bottom:10px;">
+                    <a href="hhttps://www.nespresso.com/us/en?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#000001; text-decoration:none;" alias="Nespresso_logo"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/5adbc9d8-13c6-4cb5-a583-dd5d894608f1.jpg" width="169" height="32" alt="NESPRESSO(R)" border="0" style="display:block;" class="noScale" /></a>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td align="left" valign="top"><table cellpadding="0" cellspacing="0" border="0">
+                   <tr>
+                      <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#8c8c8c; font-size:14px;">
+                        <a href="hhttps://www.nespresso.com/us/en/vertuo-coffee-pods?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" alias="COFFEE" style="color:#000001; text-decoration:none;"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/3178db56-fba6-45c5-b84d-e3c8f0023b16.jpg" width="110" height="38" alt="COFFEE" border="0" style="display:block;" /></a>
+                      </td>
+                      <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#8c8c8c; font-size:14px;">
+                        <a href="hhttps://www.nespresso.com/us/en/accessories?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" alias="ACCESSORIES" style="color:#000001; text-decoration:none;"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/a2459ae7-a8a6-40ba-9250-38c350cf96c6.jpg" width="130" height="38" alt="ACCESSORIES" border="0" style="display:block;" /></a>
+                      </td>
+                      <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#8c8c8c; font-size:14px;">
+                        <a href="hhttps://www.nespresso.com/us/en/standing-orders?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" target="_blank" conversion="true" alias="SUBSCRIPTION" style="color:#000001; text-decoration:none;"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/ef1294a3-f769-44e4-8094-223810fb04b6.jpg" width="120" height="38" alt="SUBSCRIPTION" border="0" style="display:block;" /></a>
+                      </td>
+                      <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#8c8c8c; font-size:14px;">
+                        <a href="hhttps://www.nespresso.com/us/en/order/accessories/vertuo/recycling-bag?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" alias="RECYCLING" style="color:#000001; text-decoration:none;"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/fd4f06e0-f680-4ffc-ad6d-86033345a466.jpg" width="140" height="38" alt="RECYCLING" border="0" style="display:block;" /></a>
+                      </td>
+                   </tr>
+                  </table></td>
+                </tr>
+              </table>
+        
+              <!--END NAV MODULE-->
+            </td>
+        </tr>
+        <!--END NAV MENU--> 
+        
+         <!--BEGIN BODY CONTENT-->
+         <tr>
+            <td align="left" valign="top" style="padding:10px 0 0 0;"><table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff">
+                <!--  ==============================================  -->
+                <!--  Code your main body below with different <tr>s  -->
+                <!--  Code your main body below with different <tr>s  -->
+                <!--  Code your main body below with different <tr>s  -->
+                <!--  Code your main body below with different <tr>s  -->
+                <!--  ==============================================  -->
+    
+                <tr>
+                  <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#000001;">
+                    <a href="hhttps://www.nespresso.com/us/en/?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#000001; text-decoration:none;" alias="TOP BANNER"><img src="https://image.email.nespresso.com/lib/fe91157073610c7e72/m/38/fc0cb92c-d280-4556-a67f-55b43cf52ee6.jpg" width="500" height="70" alt="Free Shipping From $35 - Free Samples With Every Order" border="0" style="display:block;" /></a> 
+                  </td>
+                </tr>
+                <!-- %%[if @OLVL == "VL" then]%% -->
+        <tr>
+                  <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#000001;">
+                    <a href="hhttps://www.nespresso.com/us/en/order/capsules/vertuo/stormio-boost-vertuo-coffee-pods?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#000001; text-decoration:none;" alias="Stormio Hero"><img src="https://image.email.nespresso.com/lib/fe91157073610c7e72/m/38/ca9bbe1b-380e-4a53-be10-a3613cf020af.jpg" width="500" height="318" alt="" border="0" style="display:block;" /></a> 
+                  </td>
+                </tr>
+                <tr>
+                    <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#000001;">
+                      <a href="hhttps://www.nespresso.com/us/en/order/capsules/vertuo/stormio-boost-vertuo-coffee-pods?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#000001; text-decoration:none;" alias="Shop Now"><img src="https://image.email.nespresso.com/lib/fe91157073610c7e72/m/38/1fbe15f1-be2f-483a-908c-d25951332e5c.jpg" width="500" height="390" alt="Amplify Your Moments With Stormio Boost - Shop Now" border="0" style="display:block;" /></a> 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#000001;">
+                      <a href="hhttps://www.nespresso.com/us/en/order/capsules/vertuo/melozio-boost-vertuo-coffee-pods?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#000001; text-decoration:none;" alias="Melozio"><img src="https://image.email.nespresso.com/lib/fe91157073610c7e72/m/38/97b7c569-349f-4d6e-99ca-299b3432c98b.jpg" width="500" height="346" alt="You May Also Like Melozio With A Boost - Shop Now" border="0" style="display:block;" /></a> 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#000001;">
+                      <a href="hhttps://www.nespresso.com/us/en/vertuo-coffee-pods?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#000001; text-decoration:none;" alias="Try Blends"><img src="https://image.email.nespresso.com/lib/fe91157073610c7e72/m/38/a9c1737b-7801-4bde-9a24-0cbc162f7d1b.jpg" width="500" height="322" alt="Try These Dark Roasts - Intenso - Mexico - Odacio - Shop Now" border="0" style="display:block;" /></a> 
+                    </td>
+                  </tr>
+ 
+  
+ 
+         <!-- %%[endif]%%  -->
+             
+
+    
+                
+        
+                <!--White Nearest BTQ  Variable address start -->
+          
+                <tr> 
+                  <td align="left" valign="top" background="https://image.email.nespresso.com/lib/fe91157073610c7e72/m/38/88c81ef5-595a-42fc-9199-321d274961a5.jpg" style="background-repeat:no-repeat; background-size:100% auto;" width="500" height="122">
+                  <!--[if gte mso 9]>
+                  <img src="https://image.email.nespresso.com/lib/fe91157073610c7e72/m/38/88c81ef5-595a-42fc-9199-321d274961a5.jpg" height="122" width="500" alt="" border="0" style="display: block;" />                
+                  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="false" stroke="false" style="position:relative;top:0;left:0;width:500px;height:123px;">
+                  <v:textbox inset="0,0,0,0">
+                  <![endif]-->
+                  <table cellpadding="0" cellspacing="0" border="0">
+                   <tr>
+                    <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#000001;">
+                    <a href="hhttps://www.nespresso.com/us/en/storeLocator?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#000001; text-decoration:none;" alias="Nearest BTQ - Top"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/7b50d572-d962-412e-bc39-a43a499adc28.png" width="500" height="30" alt="VISIT YOUR NEAREST NESPRESSO BOUTIQUE AT:" border="0" style="display:block;" /></a> 
+                  </td>
+                   </tr>
+                      <tr>
+                       <td align="center" valign="middle" height="63" style="height:63px"><table cellpadding="0" cellspacing="0" border="0" width="100%">
+              
+                          <tr>
+                    <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#ffffff; font-size:12px; mso-line-height-rule:exactly; line-height:16px; letter-spacing: 2px; text-transform:uppercase;">
+                    <a href="hhttps://www.nespresso.com/us/en/storeLocator?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#ffffff; text-decoration:none; display:block; width:100%; max-width:500px;" alias="Nearest BTQ - StoreName">GARDEN STATE PLAZA</a> 
+                  </td>
+                       </tr>
+  
+                          <tr>
+                    <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#ffffff; font-size:12px; mso-line-height-rule:exactly; line-height:16px; letter-spacing: 2px; text-transform:uppercase;">
+                    <a href="hhttps://www.nespresso.com/us/en/storeLocator?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#ffffff; text-decoration:none; display:block; width:100%;" alias="Nearest BTQ - Address">1 GARDEN STATE PLAZA</a> 
+                  </td>
+                       </tr>
+                          <tr>
+                    <td align="center" valign="top"  style="font-family:Arial, Helvetica, sans-serif; color:#ffffff; font-size:12px; mso-line-height-rule:exactly; line-height:16px; letter-spacing: 2px; text-transform:uppercase;">
+                    <a href="hhttps://www.nespresso.com/us/en/storeLocator?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#ffffff; text-decoration:none; display:block; width:100%; max-width:500px;" alias="Nearest BTQ - City">PARAUMUS, NJ 7652</a> 
+                  </td>
+                       </tr>
+                        </table>
+                       </td>
+                      </tr>
+                      
+                      <tr>
+                    <td align="center" valign="bottom" style="font-family:Arial, Helvetica, sans-serif; color:#000001;">
+                    <a href="hhttps://www.nespresso.com/us/en/storeLocator?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#000001; text-decoration:none;" alias="Nearest BTQ - Bottom"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/1fb93745-3bc8-4954-925d-66232d413e28.png" width="500" height="30" alt="SEE ALL BOUTIQUE LOCATIONS &gt;" border="0" style="display:block;" /></a> 
+                  </td>
+                   </tr>
+                  </table>
+                  <!--[if gte mso 9]>
+                  </v:textbox>
+                  </v:rect>
+                  <![endif]-->
+                  </td>
+                </tr>
+             
+                <!--White Nearest BTQ  Variable address end -->
+                <tr>
+                    <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#000001;">
+                      <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#000001; font-size:14px;">
+                            <a href="hhttps://www.nespresso.com/us/en/standing-orders?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#000001; text-decoration:none;" alias="EasyOrder Subscription"><img src="https://image.email.nespresso.com/lib/fe91157073610c7e72/m/37/ba2dd417-43b0-40f5-8a6e-0b0751e4f2f1.jpg" width="125" height="191" alt="Nespresso Services - EasyOrder Subscription" border="0" style="display:block;" /></a>
+                          </td>
+                          <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#000001; font-size:14px;">
+                            <a href="h%%=v(@recycling_url)=%%utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#000001; text-decoration:none;" alias="Free Recycling"><img src="https://image.email.nespresso.com/lib/fe91157073610c7e72/m/37/f626e643-be89-4019-a532-7428f35e49b5.jpg" width="125" height="191" alt="Free Recycling" border="0" style="display:block;" /></a>
+                          </td>
+                          <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#000001; font-size:14px;">
+                            <a href="hhttps://www.nespresso.com/us/en/storeLocator?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#000001; text-decoration:none;" alias="Boutique Pickup"><img src="https://image.email.nespresso.com/lib/fe91157073610c7e72/m/37/a1c706b3-83fe-4d0c-bf25-1d3123875173.jpg" width="125" height="191" alt="Boutique Pickup" border="0" style="display:block;" /></a>
+                          </td>
+                          <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#000001; font-size:14px;">
+                            <a href="hhttps://www.nespresso.com/us/en/service-faq?utm_source=Email&utm_medium=EM&utm_content=EM_Merkle_VET_IN_Yes_CRM_VL_Reach_TextAd_V1_LCL_DNP_NA_NA_NA_NA_&utm_campaign=US_2022Jul_B2C_LOC_StormioBoostVL_One-shot_COF_CAP_AC_Yes_NA" conversion="true" target="_blank" style="color:#000001; text-decoration:none;" alias="Customer Care"><img src="https://image.email.nespresso.com/lib/fe91157073610c7e72/m/37/f072fc84-df7b-4bfc-b3e9-0990cacec2a4.jpg" width="125" height="191" alt="Customer Care" border="0" style="display:block;" /></a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+              </table></td>
+          </tr>
+          <!--END BODY CONTENT--> 
+
+      <!--BEGIN SOCIAL ICONS--> 
+
+        <tr>
+          <td align="left" valign="middle" style="padding:15px 12px 15px 18px;" width="500"><table cellpadding="0" cellspacing="0" border="0" width="100%">
+     <tr>
+      <td align="left" valign="top">
+     <table cellpadding="0" cellspacing="0" border="0">
+      <tr>
+                <td align="left" valign="top" ><a href="https://www.facebook.com/nespresso" target="_blank" alias="Facebook"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/5d62e820-19ad-42c6-a252-976deeb60770.jpg" alt="Facebook" width="33" height="30" border="0" style="display:block;" /></a></td>
+                <td align="left" valign="top" ><a href="https://twitter.com/NespressoUSA" target="_blank" alias="Twitter"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/c75260cd-16c0-41d0-b095-d959b451fc4c.jpg" alt="Twitter" width="35" height="30" border="0" style="display:block;" /></a></td>
+                <td align="left" valign="top" ><a href="https://www.youtube.com/user/nespresso" target="_blank" alias="Youtube"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/ec3e388f-d60a-4f20-9d21-c3e15fac0fc2.jpg" alt="YouTube" width="36" height="30" border="0" style="display:block;" /></a></td>
+                <td align="left" valign="top" ><a href="http://instagram.com/nespressousa" target="_blank" alias="Instagram"><img src="http://image.email.nespresso.com/lib/fe91157073610c7e72/m/21/5a089eea-ad37-4c1c-9222-5a5708a917ab.jpg" alt="Instagram" width="37" height="30" border="0" style="display:block;" /></a></td>
+                
+              </tr>
+     </table>
+    </td>
+   
+     </tr>
+              
+            </table></td>
+        </tr>
+     
+        <!--END SOCIAL ICONS--> 
+        <!--BEGIN FOOTER-->
+        <tr>
+          <td style="font-family:Tahoma, sans-serif; font-size:11px; mso-line-height-rule:exactly; line-height:18px; color:#000001; padding:20px 10px 0 10px; border-top:1px solid #b9b7b5;" align="center" valign="top"><!--BEGIN FOOTER MODULE-->
+           
+ 
+     
+
+            You received this email as a valued subscriber of <i>Nespresso</i><sup style="line-height:0; font-size:8px; vertical-align:super;"><!--[if (gte mso 9)]><span style="font-size:11px; vertical-align:0px;"><![endif]-->&reg;<!--[if (gte mso 9)]></span><![endif]--></sup> updates and promotions. To ensure delivery, 
+            please add <a href="mailto:nespresso@email.nespresso.com" style="text-decoration:underline; color:#000001;" alias="mailto">nespresso@email.nespresso.com</a> to your address book. <a href="http://pages.email.nespresso.com/safesenderslist" style="text-decoration:underline; color:#000001;" alias="Learn how" target="_blank">Learn&nbsp;how</a>.<br />
+            <br />
+            If you no longer wish to receive email from <i>Nespresso</i><sup style="line-height:0; font-size:8px; vertical-align:super;"><!--[if (gte mso 9)]><span style="font-size:11px; vertical-align:0px;"><![endif]-->&reg;<!--[if (gte mso 9)]></span><![endif]--></sup>, <a href="%%=RedirectTo(CloudPagesURL(840, 'MAIL', MAIL, 'JobID', JobID,))=%%" target="_blank" style="color:#000001; text-decoration:underline;" alias="Unsubscribe">click here</a> to unsubscribe. <br />
+            <br />
+            Please do not reply to this email. If you need to contact us with questions or feedback, please contact <a href="https://www.nespresso.com/us/en/service-customer-care" target="_blank" style="color:#000001; text-decoration:underline;" alias="Customer Service">Customer&nbsp;Service</a>. <br />
+            <br />
+            
+     <i>Nespresso</i><sup style="line-height:0; font-size:8px; vertical-align:super;"><!--[if (gte mso 9)]><span style="font-size:11px; vertical-align:0px;"><![endif]-->&reg;<!--[if (gte mso 9)]></span><![endif]--></sup> USA, I&#65279;n&#65279;c&#65279;., 1&#65279;11 &#65279;W&#65279; 33&#65279;r&#65279;d S&#65279;t, 5&#65279;t&#65279;h F&#65279;l&#65279;o&#65279;o&#65279;r, New&nbsp;York, N&#65279;Y&nbsp;10120
+     
+   <br />
+            <br />
+            <a href="http://www.nespresso.com/us/en/legal" target="_blank" style="color:#000001; text-decoration:underline;" alias="Privacy policy">PRIVACY</a><br />
+            
+            All trademarks and other intellectual properties are owned by Soci&eacute;t&eacute; des Produits Nestl&eacute; S.A., Vevey, Switzerland, or are used with&nbsp;permission.<br />
+            <br />
+            <br />
+            <span style="font-family:Tahoma, sans-serif; font-size:11px; mso-line-height-rule:exactly; line-height:18px; color:#000001;">12424796</span><br />
+            <br />
+            
+            <!--END FOOTER MODULE--></td>
+        </tr>
+        <!--END FOOTER-->
+        
+      </table></td>
+  </tr>
+</table>
+
+<!--END 500px TABLE-->
+
+<!--END CONTENT-->
+</body>
+</html>

@@ -10,7 +10,6 @@ function EmailContainer({ emailPath, name }) {
           height="800"
           width="667"
           title={name}
-          className="email-iframe"
         />
       </div>
     </div>

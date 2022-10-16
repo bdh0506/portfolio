@@ -34,12 +34,8 @@
         "logo": "portfolio/nespresso.svg",
         "emails": {
             "1": {
-                "name": "NMSS_Aug",
-                "path": "/emails/NMSS_EM1.html"
-            },
-            "2" : {
-                "name": "NMSS_Sep",
-                "path": "/emails/NMSS_EM2.html"
+                "name": "NES_IIIS",
+                "path": "/emails/NES_EM1.html"
             }
         
         }

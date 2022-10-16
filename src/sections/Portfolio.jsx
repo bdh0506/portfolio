@@ -1,21 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Emails from '../emails.json';
-import EmailContainer from '../components/EmailContainer';
+import projectData from '../project_data.json';
+import ProjectTile from '../components/ProjectTile';
 
 function Portfolio() {
-  const emails = [];
+  const tiles = [];
 
-  Object.keys(Emails.UA).forEach((key) => {
-    emails.push(Emails.UA[key]);
+  Object.keys(projectData).forEach((key) => {
+    tiles.push(projectData[key]);
   });
   return (
-    <div>
-      <Link to="/junk">Test Link</Link>
-      <div className="row">
-        {emails.map((e) => (
-          <EmailContainer key={e.name} name={e.name} emailPath={e.path} />
-        ))}
+    <div className="portfolio-body">
+      <div className="container">
+        <div className="row">
+          {tiles.map((t) => (
+            <ProjectTile key={t.link} logoURL={t.logo} path={t.link} />
+          ))}
+        </div>
       </div>
     </div>
   );

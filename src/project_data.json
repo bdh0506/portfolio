@@ -1,0 +1,48 @@
+{
+    "ua": {
+        "link": "ua",
+        "logo": "https://i.imgur.com/j1K2Xwv.png",
+        "emails": {
+            "1": {
+                "name": "UA_Rock",
+                "path": "/emails/UA_EM1.html"
+            },
+            "2" : {
+                "name": "UA_Rock2",
+                "path": "/emails/UA_EM1.html"
+            }
+        
+        }
+    },
+    "nmss": {
+        "link": "nmss",
+        "logo": "https://i.imgur.com/JU0GWf3.png",
+        "emails": {
+            "1": {
+                "name": "NMSS_Aug",
+                "path": "/emails/NMSS_EM1.html"
+            },
+            "2" : {
+                "name": "NMSS_Sep",
+                "path": "/emails/NMSS_EM2.html"
+            }
+        
+        }
+    },
+    "nespresso": {
+        "link": "nespresso",
+        "logo": "portfolio/nespresso.svg",
+        "emails": {
+            "1": {
+                "name": "NMSS_Aug",
+                "path": "/emails/NMSS_EM1.html"
+            },
+            "2" : {
+                "name": "NMSS_Sep",
+                "path": "/emails/NMSS_EM2.html"
+            }
+        
+        }
+    }
+
+}

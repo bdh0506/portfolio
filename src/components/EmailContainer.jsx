@@ -8,7 +8,7 @@ function EmailContainer({ emailPath, name }) {
         <iframe
           src={`${process.env.PUBLIC_URL}${emailPath}`}
           height="800"
-          width="600"
+          width="667"
           title={name}
           className="email-iframe"
         />

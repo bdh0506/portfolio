@@ -1,22 +1,39 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { React, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import Emails from '../emails.json';
+import projectData from '../project_data.json';
 import EmailContainer from '../components/EmailContainer';
 
 function Showcase() {
-  const emails = [];
   const location = useLocation();
-  console.log(location.pathname);
-  Object.keys(Emails.UA).forEach((key) => {
-    emails.push(Emails.UA[key]);
-  });
+  const nav = useNavigate();
+  const projects = [];
+  const projectName = location.pathname.split('/').pop();
+  const hasProject = Object.prototype.hasOwnProperty.call(
+    projectData,
+    projectName,
+  );
+
+  useEffect(() => {
+    if (!hasProject) {
+      nav('/Error404');
+    }
+  }, [hasProject]);
+
+  if (hasProject) {
+    Object.keys(projectData[projectName].emails).forEach((key) => {
+      projects.push(projectData[projectName].emails[key]);
+    });
+  }
+
   return (
-    <div>
-      <h2>Showcase</h2>
+    <div className="container">
+      <div className="row text-center mt-4">
+        <h1>Emails</h1>
+      </div>
       <div className="row">
-        {emails.map((e) => (
-          <EmailContainer key={e.name} name={e.name} emailPath={e.path} />
+        {projects.map((p) => (
+          <EmailContainer key={p.name} name={p.name} emailPath={p.path} />
         ))}
       </div>
     </div>

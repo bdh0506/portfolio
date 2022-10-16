@@ -18,15 +18,13 @@ function App() {
     <Router>
       <div>
         <HeaderNav />
-        <div className="container">
-          <Routes>
-            <Route path="/portfolio" element={<Home />} />
-            <Route path="/dev-portfolio" element={<Portfolio />} />
-            <Route path="/dev-portfolio/:showcase" element={<Showcase />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<Error404 />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/portfolio" element={<Home />} />
+          <Route path="/dev-portfolio" element={<Portfolio />} />
+          <Route path="/dev-portfolio/:showcase" element={<Showcase />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
         <Footer />
       </div>
     </Router>

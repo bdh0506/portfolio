@@ -20,6 +20,7 @@
  /*Site Wide */
 body {
   background-color: #F3FFFF;
+  color: var(--cs-dark);
 }
 
  .btn-main {
@@ -134,12 +135,48 @@ body {
   
   /*Homepage End*/
 
+  /*Portfolio */
+  .portfolio-body {
+    background-color: var(--cs-dark);
+  }
+
+  .tile-container {
+    width: 150px;
+    height: 150px;
+    background-color: var(--cs-light);
+    border: 5px solid var(--cs-dark-ac);
+    border-radius: 10px; 
+    margin: 0 auto;
+    text-align: center;
+  }
+
+
+  .tile-container:hover{
+    border-color: var(--cs-primary);
+   }
+
+  .tile-container:focus{
+    -webkit-box-shadow: 0px 0px 10px var(--cs-light);
+    box-shadow: 0px 0px 10px var(--cs-light);
+  
+   }
+
+  /*Portfolio End */
+  
+
 
 /*Email */
 .email-container{
-  border: 1px solid var(--cs-dark);
-  width: 600px;
+  border: 3px solid var(--cs-dark);
+  max-width: 667px;
   height: 800px;
+  overflow: hidden;
+}
+
+
+
+.email-container iframe{
+  overflow: hidden;
 }
 /*Email End */
 
@@ -147,7 +184,7 @@ body {
   .main-footer {
     background-color: var(--cs-primary);
     text-align: center;
-    padding: 100px 0;
+    padding: 50px 0;
   }
   .main-footer a {
   text-decoration: none;

@@ -19,6 +19,26 @@
   --cs-light: #FEFFFF;
 }
 
+.cs-dark {
+  color: var(--cs-dark);
+}
+
+.cs-dark-ac {
+  color: var(--cs-dark-ac);
+}
+
+.cs-primary {
+  color: var(--cs-primary);
+}
+
+.cs-light-ac {
+  color: var(--cs-light-ac);
+}
+
+.cs-light {
+  color: var(--cs-light);
+}
+
  /*Site Wide */
 body {
   background-color: #F3FFFF;
@@ -165,7 +185,22 @@ body {
 
   /*Portfolio End */
   
+ /*Contact */
+ .contact-img img {
+  width: 550px;
+  border: 2px solid var(--cs-dark-ac);
+  box-shadow: -5px 5px 10px var(--cs-primary);
+  margin: 0 auto;
+}
 
+.contact-text {
+  color: #17252A;
+  text-align: center;
+  padding: 0 60px 0 60px;
+  font-size: 1.3em;
+}
+
+ /*Contact End */
 
 /*Email */
 .email-container{

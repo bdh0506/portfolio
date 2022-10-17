@@ -171,13 +171,18 @@ body {
   }
 
   .skills-box {
-    color: var(--cs-light-ac);
+    color: var(--cs-light);
     font-size: 1.4em;
-    margin: 60px 0 60px 0;
+    margin: 30px 0 30px 0;
     position: relative;
     z-index: 2;
   }
   
+  .skills-box ul {
+    display: inline-block;
+    text-align: left;
+  }
+
   /*Homepage End*/
 
   /*Portfolio */
@@ -341,6 +346,13 @@ body {
     height: 100px;
   }
   /*Header End*/
+  
+  /*Homepage */
+  .skills-box li {
+    width: 170px;
+    }
+
+  /*Homepage */
   
   /*Email */
   .email-container{

@@ -4,6 +4,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 function HeaderNav() {
+  function toggle() {
+    document.querySelector('.animated-burger').classList.toggle('open');
+  }
   return (
     <div>
       <div className="main-header">
@@ -13,13 +16,31 @@ function HeaderNav() {
         </div>
       </div>
 
-      <nav className="navbar navbar-expand-lg navbar-dark navbar-green px-5">
+      <nav className="navbar navbar-expand-md navbar-dark navbar-green px-5">
         <NavLink className="navbar-brand" to="/portfolio">
           WELCOME
         </NavLink>
-        <div className="collapse navbar-collapse">
+
+        <button
+          onClick={toggle}
+          className="navbar-toggler third-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav-main"
+          aria-controls="nav-main"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <div className="animated-burger">
+            <span />
+            <span />
+            <span />
+          </div>
+        </button>
+
+        <div className="collapse navbar-collapse" id="nav-main">
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item px-2">
+            <li className="nav-item active px-2">
               <NavLink
                 className={({ isActive }) =>
                   `nav-link ${isActive ? 'active' : ''}`

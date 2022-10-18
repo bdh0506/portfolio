@@ -54,19 +54,6 @@ function Home() {
                 <li>Charity Engine</li>
               </ul>
             </div>
-
-            {/* <div className="col-md-6 col-sm-12">&#x2022; C#</div>
-            <div className="col-md-6 col-sm-12 ">&#x2022; .NET/.NET Core</div>
-            <div className="col-md-6 col-sm-12">&#x2022; Javascript</div>
-            <div className="col-md-6 col-sm-12">&#x2022; React</div>
-            <div className="col-md-6 col-sm-12">&#x2022; JQuery</div>
-            <div className="col-md-6 col-sm-12">&#x2022; AMPscript</div>
-            <div className="col-md-6 col-sm-12">&#x2022; AJAX/REST</div>
-            <div className="col-md-6 col-sm-12">&#x2022; SQL</div>
-            <div className="col-md-6 col-sm-12">&#x2022; Salesforce MC</div>
-            <div className="col-md-6 col-sm-12">&#x2022; Responsys</div>
-            <div className="col-md-6 col-sm-12">&#x2022; Luminate</div>
-            <div className="col-md-6 col-sm-12">&#x2022; Charity Engine</div> */}
           </div>
         </div>
       </div>

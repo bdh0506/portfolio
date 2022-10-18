@@ -40,5 +40,10 @@
         
         }
     }
+    ,
+    "websites": {
+        "link": "websites",
+        "logo": "fa-globe"
+    }
 
 }

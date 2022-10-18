@@ -50,6 +50,7 @@ body {
   color: var(--cs-light-ac); 
   border-radius: 1.5rem;
   border: 2px solid var(--cs-light-ac);
+  transition: 0.3s;
  }
 
  .btn-main:hover {
@@ -294,6 +295,7 @@ body {
     border-radius: 10px; 
     margin: 0 auto;
     text-align: center;
+    transition: 0.3s;
   }
   
   .tile-container img {
@@ -309,6 +311,23 @@ body {
     box-shadow: 0px 0px 10px var(--cs-light);
   
    }
+
+   .tile-container.icon {
+    font-size: 5.7em;
+   }
+
+   .website-image {
+    border: 5px solid var(--cs-dark-ac);
+    overflow: hidden;
+    border-radius: 10px; 
+    transition: 0.3s;
+  }
+  
+  .website-image:hover {  
+     border-color: var(--cs-primary);
+    }
+  
+  
 
   /*Portfolio End */
   
@@ -439,9 +458,19 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+  /*Header */
   .nav-link {
     text-align: right;
   }
+ /*Header End */
+
+ /*Portfolio */
+
+  .modal-content {
+    width: 100%;
+  }
+
+   /*Portfolio End */
 }
 
 @media only screen and (max-width: 576px) {

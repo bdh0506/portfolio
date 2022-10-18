@@ -10,6 +10,7 @@ import Home from './sections/Home';
 import Portfolio from './sections/Portfolio';
 import Showcase from './sections/Showcase';
 import Contact from './sections/Contact';
+import Websites from './sections/Websites';
 
 library.add(fas);
 
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/portfolio" element={<Home />} />
           <Route path="/dev-portfolio" element={<Portfolio />} />
+          <Route path="/dev-portfolio/websites" element={<Websites />} />
           <Route path="/dev-portfolio/:showcase" element={<Showcase />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Error404 />} />

@@ -472,6 +472,12 @@ body {
 
   /*Homepage */
 
+  /*Portfolio */
+    .tile-container img {
+      width: 100%;
+    }
+  /*Portfolio End*/
+
   /*Email */
   .email-container{
     border: 1px solid var(--cs-dark);

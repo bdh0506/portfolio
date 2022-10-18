@@ -295,7 +295,10 @@ body {
     margin: 0 auto;
     text-align: center;
   }
-
+  
+  .tile-container img {
+    margin: 0 auto;
+  }
 
   .tile-container:hover{
     border-color: var(--cs-primary);

@@ -296,17 +296,12 @@ body {
     margin: 0 auto;
     text-align: center;
     transition: 0.3s;
+    color: #000001;
   }
   
   .tile-container img {
     margin: 0 auto;
   }
-
-  .tile-container a {
-    text-decoration: none;
-    color: #000001;
-  }
-
 
   .tile-container:hover{
     border-color: var(--cs-primary);

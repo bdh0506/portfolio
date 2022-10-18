@@ -296,7 +296,7 @@ body {
     margin: 0 auto;
     text-align: center;
     transition: 0.3s;
-    color: #000001;
+    color: #000001 !important;
   }
   
   .tile-container img {
@@ -506,6 +506,11 @@ body {
     .tile-container img {
       width: 100%;
     }
+
+    .tile-container svg {
+      width: 100%;
+    }
+
   /*Portfolio End*/
 
   /*Email */

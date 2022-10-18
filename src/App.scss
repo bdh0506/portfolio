@@ -302,6 +302,11 @@ body {
     margin: 0 auto;
   }
 
+  .tile-container a {
+    text-decoration: none;
+  }
+
+
   .tile-container:hover{
     border-color: var(--cs-primary);
    }

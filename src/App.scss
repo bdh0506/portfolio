@@ -568,7 +568,8 @@ border-radius: 0px;
 
     .tile-container.icon {
       align-items: center;
-      font-size: 3.7em;
+      font-size: 5.7em;
+      min-width: 20vw;
       display: flex;
       justify-content: center;
       overflow: hidden;

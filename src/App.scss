@@ -521,6 +521,9 @@ border-radius: 0px;
  /*Header End */
 
  /*Portfolio */
+ .tile-container img {
+  width: 100%;
+}
 
   .modal-content {
     width: 100%;
@@ -558,9 +561,6 @@ border-radius: 0px;
   /*Homepage */
 
   /*Portfolio */
-    .tile-container img {
-      width: 100%;
-    }
 
     .website-section {
       font-size: 1.1em;
@@ -568,7 +568,7 @@ border-radius: 0px;
 
     .tile-container.icon {
       align-items: center;
-      font-size: 4.7em;
+      font-size: 3.7em;
       display: flex;
       justify-content: center;
       overflow: hidden;

@@ -364,6 +364,42 @@ a:hover, a:hover {
       display: block;
    
     }
+
+
+        
+    .divider {								/* minor cosmetics */
+        display: table; 
+        font-size: 24px; 
+        text-align: center; 
+        width: 75%; 						/* divider width */
+        margin: 40px auto;					/* spacing above/below */
+    }
+    .divider span { display: table-cell; position: relative; }
+    .divider span:first-child, .divider span:last-child {
+        width: 50%;
+        top: 13px;							/* adjust vertical align */
+        -moz-background-size: 100% 2px; 	/* line width */
+        background-size: 100% 2px; 			/* line width */
+        background-position: 0 0, 0 100%;
+        background-repeat: no-repeat;
+    }
+    .divider span:first-child {				/* color changes in here */
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(var(--cs-dark-ac)));
+        background-image: -webkit-linear-gradient(180deg, transparent, var(--cs-dark-ac));
+        background-image: -moz-linear-gradient(180deg, transparent, var(--cs-dark-ac));
+        background-image: -o-linear-gradient(180deg, transparent, var(--cs-dark-ac));
+        background-image: linear-gradient(90deg, transparent, var(--cs-dark-ac));
+    }
+    .divider span:nth-child(2) {
+        color: var(--cs-dark-ac); padding: 0px 5px; width: auto; white-space: nowrap;
+    }
+    .divider span:last-child {				/* color changes in here */
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(var(--cs-dark-ac)), to(transparent));
+        background-image: -webkit-linear-gradient(180deg, var(--cs-dark-ac), transparent);
+        background-image: -moz-linear-gradient(180deg, var(--cs-dark-ac), transparent);
+        background-image: -o-linear-gradient(180deg, var(--cs-dark-ac), transparent);
+        background-image: linear-gradient(90deg, var(--cs-dark-ac), transparent);
+    }
   
 
   /*Portfolio End */
@@ -525,6 +561,10 @@ border-radius: 0px;
   width: 100%;
 }
 
+.tile-container.icon {
+  padding: 0px;
+ }
+
   .modal-content {
     width: 100%;
   }
@@ -565,14 +605,6 @@ border-radius: 0px;
     .website-section {
       font-size: 1.1em;
     }
-
-    .tile-container.icon {
-      align-items: center;
-      font-size: 5.7em;
-      display: flex;
-      justify-content: center;
-      padding: 0px;
-     }
 
   /*Portfolio End*/
 

@@ -323,7 +323,16 @@ a:hover, a:hover {
    }
 
    .tile-container.icon {
+    align-items: center;
     font-size: 5.7em;
+    display: flex;
+    justify-content: center;
+   }
+
+   .tile-container.icon svg {
+    margin: 0 auto;
+    display: block;
+    
    }
 
    .website-section {

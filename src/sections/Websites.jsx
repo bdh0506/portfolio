@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Websites() {
   const openModal = (image) => {
@@ -9,12 +10,33 @@ function Websites() {
   };
 
   return (
-    <div className="container">
+    <div className="container website-section">
       <div className="row pt-4 text-center">
         <h1>Websites</h1>
       </div>
       <div className="row">
-        <div className="col-xl-4">
+        <div className="col text-center mb-4 mt-2">
+          Worked as part of 7 developer team to completely rework the front-end
+          and partially reorganize the back-end of the PerfectVision website. I
+          was the main front-end developer and I worked with a few designers to
+          complete the look of the new site. See below to compare how the
+          landing page looked in 2018 verus how it looked in&nbsp;2020-Current.
+        </div>
+      </div>
+      <div className="row">
+        <div className="col text-center mb-4 mt-2">
+          Current site:
+          <a
+            href="https://www.perfect-vision.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            perfect-vision.com
+          </a>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-xl-4 col-lg-12 mx-auto d-flex justify-content-center mb-4">
           <button
             type="button"
             className="website-image"
@@ -29,8 +51,14 @@ function Websites() {
             />
           </button>
         </div>
-        <div className="col-xl-4" />
-        <div className="col-xl-4">
+        <div className="col-xl-4 col-lg-12 website-icon right-arrow text-center mb-4">
+          <FontAwesomeIcon
+            icon="fa-solid fa-right-long"
+            className="d-none d-xl-block"
+          />
+          <FontAwesomeIcon icon="fa-solid fa-down-long" className="d-xl-none" />
+        </div>
+        <div className="col-xl-4 col-lg-12 d-flex justify-content-center mb-4">
           <button
             type="button"
             className="website-image"

@@ -17,11 +17,8 @@ function EmailContainer({ emailPath, name }) {
   );
 }
 EmailContainer.propTypes = {
-  emailPath: PropTypes.node,
-  name: PropTypes.string,
+  emailPath: PropTypes.node.isRequired,
+  name: PropTypes.string.isRequired,
 };
-EmailContainer.defaultProps = {
-  emailPath: '',
-  name: '',
-};
+
 export default EmailContainer;

@@ -45,6 +45,15 @@ body {
   color: var(--cs-dark);
 }
 
+a, a:visited {
+  color: var(--cs-dark);
+}
+
+a:hover, a:hover {
+  color: var(--cs-dark-ac);
+}
+
+
  .btn-main {
   background-color: var(--cs-dark);
   color: var(--cs-light-ac); 
@@ -317,17 +326,35 @@ body {
     font-size: 5.7em;
    }
 
+   .website-section {
+    font-size: 1.3em;
+   }
+
    .website-image {
     border: 5px solid var(--cs-dark-ac);
     overflow: hidden;
     border-radius: 10px; 
     transition: 0.3s;
+    width: 400px;
+    height: 250px;
   }
   
   .website-image:hover {  
      border-color: var(--cs-primary);
     }
   
+    .website-icon.right-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .website-icon.right-arrow svg{
+      font-size: 7em;
+      margin: 0 auto;
+      display: block;
+   
+    }
   
 
   /*Portfolio End */
@@ -346,9 +373,28 @@ body {
   font-size: 1.3em;
 }
 
+#contact-form .form-icon svg {
+  font-size: 1.5em; 
+
+}
+
+#contact-form .form-icon.user {
+  width: 51px;
+}
+
+#contact-form .input-group-append.form-icon .input-group-text {
+border-radius: 0px;
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+  color: var(--cs-dark);
+  background-color: var(--cs-primary);
+  border: 1px solid var(--cs-primary);
+}
+
 #contact-form .form-control {
   color: var(--cs-light);
   background-color: var(--cs-dark);
+  border: 1px solid var(--cs-dark);
 }
 
 #contact-form .form-control:focus{
@@ -505,6 +551,10 @@ body {
   /*Portfolio */
     .tile-container img {
       width: 100%;
+    }
+
+    .website-section {
+      font-size: 1.1em;
     }
 
   /*Portfolio End*/

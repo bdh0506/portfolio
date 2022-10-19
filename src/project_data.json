@@ -14,6 +14,62 @@
         
         }
     },
+    "converse": {
+        "link": "converse",
+        "logo": "https://i.imgur.com/pVbpsLB.png",
+        "emails": {
+            "1": {
+                "name": "CON_1",
+                "path": "/emails/CON_EM1.html"
+            }
+        
+        }
+    },
+    "chase": {
+        "link": "chase",
+        "logo": "https://i.imgur.com/5ZdOI1b.png",
+        "emails": {
+            "1": {
+                "name": "NES_IIIS",
+                "path": "/emails/NES_EM1.html"
+            }
+        
+        }
+    },
+    "mtbank": {
+        "link": "mtbank",
+        "logo": "https://i.imgur.com/knU53dv.png",
+        "emails": {
+            "1": {
+                "name": "NES_IIIS",
+                "path": "/emails/NES_EM1.html"
+            }
+        
+        }
+    },
+    "nespresso": {
+        "link": "nespresso",
+        "logo": "portfolio/nespresso.svg",
+        "emails": {
+            "1": {
+                "name": "NES_IIIS",
+                "path": "/emails/NES_EM1.html"
+            }
+        
+        }
+    },
+
+    "atkins": {
+        "link": "atkins",
+        "logo": "https://i.imgur.com/vFyAjNq.png",
+        "emails": {
+            "1": {
+                "name": "NES_IIIS",
+                "path": "/emails/NES_EM1.html"
+            }
+        
+        }
+    },
     "nmss": {
         "link": "nmss",
         "logo": "https://i.imgur.com/03UEBiz.png",
@@ -29,18 +85,6 @@
         
         }
     },
-    "nespresso": {
-        "link": "nespresso",
-        "logo": "portfolio/nespresso.svg",
-        "emails": {
-            "1": {
-                "name": "NES_IIIS",
-                "path": "/emails/NES_EM1.html"
-            }
-        
-        }
-    }
-    ,
     "websites": {
         "link": "websites",
         "logo": "fa-globe"

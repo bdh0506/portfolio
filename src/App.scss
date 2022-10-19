@@ -327,7 +327,6 @@ a:hover, a:hover {
     font-size: 5.7em;
     display: flex;
     justify-content: center;
-    overflow: hidden;
    }
 
    .tile-container.icon svg {
@@ -566,6 +565,14 @@ border-radius: 0px;
     .website-section {
       font-size: 1.1em;
     }
+
+    .tile-container.icon {
+      align-items: center;
+      font-size: 4.7em;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+     }
 
   /*Portfolio End*/
 

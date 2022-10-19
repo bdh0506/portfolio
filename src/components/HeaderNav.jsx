@@ -11,8 +11,9 @@ function HeaderNav() {
     <div>
       <div className="main-header">
         <div>
-          Brandon Harmon
-          <span> &mdash; Developer Portfolio</span>
+          Developer Portfolio
+          <span> &mdash; Brandon Harmon</span>
+          <hr className="transition-hightlight" />
         </div>
       </div>
 

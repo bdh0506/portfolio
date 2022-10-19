@@ -121,7 +121,7 @@ function Websites() {
         <div className="col">
           <div className="divider">
             <span />
-            <span>Email Quiz</span>
+            <span>Quiz Email</span>
             <span />
           </div>
         </div>

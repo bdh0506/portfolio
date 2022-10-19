@@ -23,7 +23,7 @@ function Home() {
           me outside with my partner and dogs going on a hike, although, you
           won&#39;t find me scaling Mount Rainier. Thank you for stopping by and
           please check out my portfolio of websites and email campaigns I have
-          developed and sometimes helped to&nbsp;design.
+          developed, designed or&nbsp;both.
         </div>
       </div>
       <div className="row skills-wrapper mb-5">

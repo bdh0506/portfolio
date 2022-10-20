@@ -184,123 +184,7 @@
  <![endif]-->
 
  <!-- Ampscript goes here -->
- %%[
-VAR @utmSource, @utmMedium, @utmCampaign,@utmContent,@countryLink,@trackingCode,@subjectline
-
-SET @campaignID = "N20-21"
-SET @country = Country
-SET @utmsource = "new"
-SET @utmedium = "email"
-
-SET @gender = gender
-SET @mailingID = mailingID
-
-set @TrackDay = [TrackDay]
-set @Current_Phase = [Current_Phase]
-
-
-IF Country == "CAN" THEN
-    SET @countryLink = "https://www.atkins.ca/"
-ELSEIF Country == "CANADA" THEN
-   SET @countryLink = "https://www.atkins.ca/"
-ELSEIF Country == "CA" THEN
-   SET @countryLink = "https://www.atkins.ca/"
-ELSEIF Country == "united states" THEN
-   SET @countryLink = "https://www.atkins.com/"
-ELSEIF Country == "US" THEN
-   SET @countryLink = "https://www.atkins.com/"   
-ELSE
-    SET @countryLink = "https://www.atkins.com/"
-ENDIF
-
-
-/* set countryCode for easy content show/hide */
-IF Country == "CA" or Country == "CAN" or Country == "CAN" THEN
-    SET @countryCode = "CA"
-ELSEIF Country == "US" or Country == "United States" THEN
-   SET @countryCode = "US"
-ELSE
-    SET @countryCode = "US"
-ENDIF
-
-
-/*Tracking*/
-
-IF @Current_Phase =="" THEN /* IF Current Phase is blank */
- set @Phase = Substring(Trim(Field(Row(BuildRowSetFromString(@Current_Phase, '-'), 2), 1)),7,1) /* Right of the hypen */
  
- set @tracking = Concat("?utm_source=",@utmsource,"&utm_medium=",@utmedium,"&utm_campaign=","NP","D",@TrackDay)
- set @tracking2 = Concat("&utm_source=",@utmsource,"&utm_medium=",@utmedium,"&utm_campaign=","NP","D",@TrackDay)
-
-ELSEIF @Current_Phase =="Atkins 40" THEN /* If Current Phase = Atkins 40 */
- 
- set @tracking = Concat("?utm_source=",@utmsource,"&utm_medium=",@utmmedium,"&utm_campaign=","A",@Plans,"D",@TrackDay)
- set @tracking2 = Concat("&utm_source=",@utmsource,"&utm_medium=",@utmmedium,"&utm_campaign=","A",@Plans,"D",@TrackDay)
- set @recipesURL = Concat(@Rurl,@tracking)
-
-
-ELSE /* Current Phase = Atkins 20 */
- set @Phase = Substring(Trim(Field(Row(BuildRowSetFromString(@Current_Phase, '-'), 2), 1)),7,1) /* Right of the hypen */
- 
- set @tracking = Concat("?utm_source=",@utmsource,"&utm_medium=",@utmedium,"&utm_campaign=","A",@Plans,"P",@Phase,"D",@TrackDay)
- set @tracking2 = Concat("&utm_source=",@utmsource,"&utm_medium=",@utmedium,"&utm_campaign=","A",@Plans,"P",@Phase,"D",@TrackDay)
- set @recipesURL = Concat(@Rurl,@tracking) 
-
-ENDIF
-
-SET @utmcampaign = "A",@Plans,"P",@Phase,"D",@TrackDay
-
-/*SET @trackingCode = Concat("?utm_source=",@utmSource,"&utm_medium=",@utmMedium,"&utm_campaign=",@utmCampaign)*/
-
-SET @logoURL = Concat(@countryLink,@tracking)
-SET @mobileAppURL = Concat(@countryLink,"how-it-works/free-tools/mobile-app",@tracking)
-SET @productsURL = Concat(@countryLink,"products",@tracking)
-SET @howItWorksURL = Concat(@countryLink,"how-it-works",@tracking)
-SET @successStoriesURL = Concat(@countryLink,"success-stories",@tracking)
-SET @recipesURL = Concat(@countryLink,"recipes",@tracking)
-SET @faqURL = Concat(@countryLink,"how-it-works/faqs/atkins20-faq",@tracking)
-SET @blogURL = Concat(@countryLink,"how-it-works/atkins-blogs",@trackingCode)
-SET @itunesAppURL = Concat("https://itunes.apple.com/us/app/atkins-carb-tracker/id583475512?ls=1&mt=8",@trackingCode)
-SET @googleAppURL = Concat("https://play.google.com/store/apps/details?id=com.atkins.android.carbcounter&hl=en",@trackingCode)
-SET @facebookURL = Concat("https://www.facebook.com/AtkinsNutritionals",@trackingCode)
-SET @instagramURL = Concat("https://www.instagram.com/atkinsnutritionals/",@trackingCode)
-SET @twitterURL = Concat("https://twitter.com/atkinsinsider",@trackingCode)
-SET @pinterestURL = Concat("https://www.pinterest.com/atkinsnutritionals/",@trackingCode)
-SET @youtubeURL = Concat("https://www.youtube.com/user/AtkinsNutritionals",@trackingCode)
-SET @privacyPolicyURL = Concat(@countryLink,"privacy-policy",@trackingCode)
-SET @termsConditionsURL = Concat(@countryLink,"terms-of-use",@trackingCode)
-SET @contactUsURL = Concat(@countryLink,"contact-us",@trackingCode)
-
-SET @subjectline = "All the Ways We’re Here for You."
-
-
-
-/*N20-P1-21 specific links*/
-
-set @heroURL   = Concat(@countryLink,"recipes/bacon-avocado-and-jack-cheese-omelets-with-fresh-salsa/7",@tracking)
-set @frozenMealsURL  = Concat(@countryLink,"products/frozen-meals/lunch-dinner",@tracking)
-set @toolsURL   = Concat(@countryLink,"how-it-works/free-tools",@tracking)
-
-/*END N20-P1-21 specific links*/
-
-
-
-/*Module Selection*/
- /* set variable to Y to show the modules */
-  set @contentone = "Y"
-    set @contenttwo = "Y"    
-    set @contentthree = "Y"    
-    set @contentfour = "Y"
-    set @contentfive = "N" 
-    set @contentsix = "N"
-    set @contentseven = "N"
-
-
-IF recip_type == "proof" 
- then set @subjectline = concat("[",@campaignID,"_","PROOF_",@country,"_Gender=",@gender,"] ",@subjectline)
-ENDIF
-
-]%%  
  <!-- end Ampscrimpt --> 
  
 </head>
@@ -314,7 +198,7 @@ ENDIF
 <center style="width: 100%; background-color: #cccccc;">
 
     <!-- Visually Hidden Preheader Text : BEGIN -->
-      <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;"> %%=v(@preheader_text)=%% </div>
+      <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;"> Check out our Bacon Avocado and Jack Cheese Omelet recipe </div>
       <!-- Visually Hidden Preheader Text : END --> 
       <!-- Preview Text Spacing Hack : BEGIN -->
       <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;"> &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp; </div>
@@ -344,7 +228,7 @@ ENDIF
   <td bgcolor="#ffffff" valign="top" align="left" style="background-color:#ffffff">
    <!-- START: EMAIL -->
    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-    %%[if @contentone == "Y" then]%%
+
     <tr>
      <td valign="top" align="left">
       <!-- Begin header content -->
@@ -363,15 +247,14 @@ ENDIF
          </tr>
          <tr>
           <td valign="middle" align="center" height="65" style="background-color: #008481; height: 65px;">
-           <a alias="LOGO" href="%%=RedirectTo(@logoURL)=%%" target="_blank"><img src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/6d2c1182-bbd4-42ab-98c5-346a557e2392.png" alt="ATKINS" width="61" height="54" border="0" style="display: block;"></a>
+           <a alias="LOGO" href="https://www.atkins.com/" target="_blank"><img src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/6d2c1182-bbd4-42ab-98c5-346a557e2392.png" alt="ATKINS" width="61" height="54" border="0" style="display: block;"></a>
           </td>
          </tr>
         </table>
 <!-- End header content  -->
      </td>
     </tr>
-    %%[endif]%%
-    %%[if @contenttwo == "Y" then]%%
+
     <tr>
      <td valign="top" align="left">
       <!-- begin hero with cta snippet -->
@@ -394,11 +277,11 @@ ENDIF
               <!-- BUTTON - START -->
               <div>
                <!--[if mso]>
-                 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@heroURL)=%%" style="height:44px;v-text-anchor:middle;width:140px;" arcsize="50%" stroke="f" fillcolor="#1b75bc">
+                 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.atkins.com/recipes/bacon-avocado-and-jack-cheese-omelets-with-fresh-salsa/7" style="height:44px;v-text-anchor:middle;width:140px;" arcsize="50%" stroke="f" fillcolor="#1b75bc">
                  <w:anchorlock/>
                  <center>
                  <![endif]-->
-               <a href="%%=RedirectTo(@heroURL)=%%" alias="hero CTA" style="background-color:#1b75bc;border-radius:22px;color:#ffffff;display:inline-block;font-family:Arial, sans-serif;font-size:16px;font-weight:bold;line-height:44px;text-align:center;text-decoration:none;width:140px;-webkit-text-size-adjust:none;">Get Recipe</a>
+               <a href="https://www.atkins.com/recipes/bacon-avocado-and-jack-cheese-omelets-with-fresh-salsa/7" alias="hero CTA" style="background-color:#1b75bc;border-radius:22px;color:#ffffff;display:inline-block;font-family:Arial, sans-serif;font-size:16px;font-weight:bold;line-height:44px;text-align:center;text-decoration:none;width:140px;-webkit-text-size-adjust:none;">Get Recipe</a>
                <!--[if mso]>
                  </center>
                  </v:roundrect>
@@ -426,16 +309,16 @@ ENDIF
       </tr>
     <tr>
              <td valign="top" align="left" style="color: #353535; font-family: Arial, Helvetica, sans-serif; font-size: 14px; mso-line-height-rule:exactly; line-height:17px; padding-bottom: 15px;">
-      By now, you know that even with all the changes you've made to your eating, you don't have to give up flavorful, filling food &ndash; like this <a href="%%=RedirectTo(@heroURL)=%%" alias="hero intro link" target="_blank" style="color: #1b75bc; text-decoration: underline">Bacon Avocado and Jack Cheese Omelet with Fresh Salsa</a>.
+      By now, you know that even with all the changes you've made to your eating, you don't have to give up flavorful, filling food &ndash; like this <a href="https://www.atkins.com/recipes/bacon-avocado-and-jack-cheese-omelets-with-fresh-salsa/7" alias="hero intro link" target="_blank" style="color: #1b75bc; text-decoration: underline">Bacon Avocado and Jack Cheese Omelet with Fresh Salsa</a>.
        </td>
       </tr>
-         %%[if @countryCode == "US" THEN ]%%
+     
             <tr>
              <td valign="top" align="left" style="color: #353535; font-family: Arial, Helvetica, sans-serif; font-size: 14px; mso-line-height-rule:exactly; line-height:17px; padding-bottom: 15px;">
-      And the next time you're at the grocery store, don't forget to pick up <a href="%%=RedirectTo(@frozenMealsURL)=%%" alias="Atkins frozen meals" target="_blank" style="color: #1b75bc; text-decoration: underline">Atkins frozen meals</a> for delicious meals when you're short <span style="white-space: nowrap">on time.</span>
+      And the next time you're at the grocery store, don't forget to pick up <a href="https://www.atkins.com/products/frozen-meals/lunch-dinner" alias="Atkins frozen meals" target="_blank" style="color: #1b75bc; text-decoration: underline">Atkins frozen meals</a> for delicious meals when you're short <span style="white-space: nowrap">on time.</span>
              </td>
       </tr>
-   %%[endif]%%
+
             <tr>
              <td valign="top" align="left" style="color: #353535; font-family: Arial, Helvetica, sans-serif; font-size: 14px; mso-line-height-rule:exactly; line-height:17px;">
               To your health!<br>
@@ -449,8 +332,7 @@ ENDIF
 <!-- end intro snippet -->
      </td>
     </tr>
-    %%[endif]%%
-    %%[if @contentthree == "Y" then]%%
+
     <tr>
      <td valign="top" align="left">
       <!--begin side by side to stacked content-->
@@ -468,11 +350,10 @@ ENDIF
                </tr>
                <tr>
                 <td class="" valign="top" align="left" style="font-family: Helvetica, Arial, 'sans-serif'; line-height: 17px; font-size: 14px; font-weight: normal; color: #353535; background-color: #f0f0f0; text-align: left; padding: 0 15px 25px 25px;">Get FREE tools from Atkins: 
-     %%[if @countryCode == "US" THEN ]%%
+ 
       Carb Tracker app, hundreds of recipes and a <span style="white-space: nowrap">lot more.</span>
-     %%[else]%%
-      Digital Tracker, Carb Counter, hundreds of recipes and a <span style="white-space: nowrap">lot more.</span>
-     %%[endif]%%
+
+
                 </td>
                </tr>
                <tr class="center-on-narrow">
@@ -483,11 +364,11 @@ ENDIF
                     <!-- BUTTON - START -->
                     <div>
                      <!--[if mso]>
-                 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@toolsURL)=%%" style="height:44px;v-text-anchor:middle;width:140px;" arcsize="50%" stroke="f" fillcolor="#1b75bc">
+                 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.atkins.com/how-it-works/free-tools" style="height:44px;v-text-anchor:middle;width:140px;" arcsize="50%" stroke="f" fillcolor="#1b75bc">
                  <w:anchorlock/>
                  <center>
                  <![endif]-->
-                     <a href="%%=RedirectTo(@toolsURL)=%%" alias="tools CTA" style="background-color:#1b75bc;border-radius:22px;color:#ffffff;display:inline-block;font-family:Arial, sans-serif;font-size:16px;font-weight:bold;line-height:44px;text-align:center;text-decoration:none;width:140px;-webkit-text-size-adjust:none;">Learn More</a>
+                     <a href="https://www.atkins.com/how-it-works/free-tools" alias="tools CTA" style="background-color:#1b75bc;border-radius:22px;color:#ffffff;display:inline-block;font-family:Arial, sans-serif;font-size:16px;font-weight:bold;line-height:44px;text-align:center;text-decoration:none;width:140px;-webkit-text-size-adjust:none;">Learn More</a>
                      <!--[if mso]>
                  </center>
                  </v:roundrect>
@@ -502,19 +383,15 @@ ENDIF
               </table>
              </th>
              <th class="hidden" valign="top" align="center">
-       %%[if @countryCode == "US" THEN ]%%
-        <a alias="tools img desktop us" href="%%=redirectTo(@toolsURL)=%%" target="_blank"><img alt="" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/022d7c97-ee65-4fcd-b537-f1399f6fbe7a.png" width="264" border="0" style="display: block; border: none;"></a>
-       %%[else]%%
-        <a alias="tools img desktop ca" href="%%=redirectTo(@toolsURL)=%%" target="_blank"><img alt="" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/85c0353e-d717-4e47-83bd-94f61cff7a78.png" width="264" border="0" style="display: block; border: none;"></a>
-       %%[endif]%%
+     
+        <a alias="tools img desktop us" href="https://www.atkins.com/how-it-works/free-tools" target="_blank"><img alt="" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/022d7c97-ee65-4fcd-b537-f1399f6fbe7a.png" width="264" border="0" style="display: block; border: none;"></a>
+ 
              </th>
              <!--[if !mso]><!-->
              <th class="stack-column show" valign="top" align="center" style="display: none;">
-       %%[if @countryCode == "US" THEN ]%%
-        <a alias="tools img mobile" href="%%=redirectTo(@toolsURL)=%%" target="_blank"><img alt="" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/01053a2f-6001-4622-b574-c540ee40e2ff.png" width="280" border="0" style="padding: 25px 0 0 0; display: block; border: none;"></a>
-       %%[else]%%
-        <a alias="tools img mobile ca" href="%%=redirectTo(@toolsURL)=%%" target="_blank"><img alt="" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/6ea94afd-450a-4e93-9e7d-41bb6c6b2640.png" width="280" border="0" style="display: block; border: none;"></a>
-       %%[endif]%%
+   
+        <a alias="tools img mobile" href="https://www.atkins.com/how-it-works/free-tools" target="_blank"><img alt="" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/01053a2f-6001-4622-b574-c540ee40e2ff.png" width="280" border="0" style="padding: 25px 0 0 0; display: block; border: none;"></a>
+
              </th>
              <!--<![endif]-->
             </tr>
@@ -525,8 +402,8 @@ ENDIF
         <!--end side by side to stacked content-->
      </td>
     </tr>
-    %%[endif]%%
-    %%[if @contentfour == "Y" then]%%
+
+ 
     <tr>
      <td valign="top" align="left">
       <!--begin side by side to stacked content-->
@@ -554,11 +431,11 @@ ENDIF
                     <!-- BUTTON - START -->
                     <div>
                      <!--[if mso]>
-                 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@recipesURL)=%%" style="height:44px;v-text-anchor:middle;width:140px;" arcsize="50%" stroke="f" fillcolor="#1b75bc">
+                 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.atkins.com/recipes" style="height:44px;v-text-anchor:middle;width:140px;" arcsize="50%" stroke="f" fillcolor="#1b75bc">
                  <w:anchorlock/>
                  <center>
                  <![endif]-->
-                     <a href="%%=RedirectTo(@recipesURL)=%%" alias="recipes CTA" style="background-color:#1b75bc;border-radius:22px;color:#ffffff;display:inline-block;font-family:Arial, sans-serif;font-size:16px;font-weight:bold;line-height:44px;text-align:center;text-decoration:none;width:140px;-webkit-text-size-adjust:none;">Get Recipes</a>
+                     <a href="https://www.atkins.com/recipes" alias="recipes CTA" style="background-color:#1b75bc;border-radius:22px;color:#ffffff;display:inline-block;font-family:Arial, sans-serif;font-size:16px;font-weight:bold;line-height:44px;text-align:center;text-decoration:none;width:140px;-webkit-text-size-adjust:none;">Get Recipes</a>
                      <!--[if mso]>
                  </center>
                  </v:roundrect>
@@ -573,13 +450,13 @@ ENDIF
               </table>
              </th>
              <th class="hidden" valign="top" align="center">
-              <a alias="recipes img desktop" href="%%=redirectTo(@recipesURL)=%%" target="_blank">
+              <a alias="recipes img desktop" href="https://www.atkins.com/recipes" target="_blank">
                <img alt="" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/2f0af9c1-0db5-43b0-b2ac-342a1537aef8.jpg" width="258" border="0" style="display: block; border: none;">
               </a>
              </th>
              <!--[if !mso]><!-->
              <th class="stack-column show" valign="top" align="center" style="display: none;">
-              <a alias="recipes img mobile" href="%%=redirectTo(@recipesURL)=%%" target="_blank">
+              <a alias="recipes img mobile" href="https://www.atkins.com/recipes" target="_blank">
                <img alt="" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/350aa8bb-722e-41b0-bb8b-43b2f5d09ba7.jpg" width="278" border="0" style="display: block; border: none;">
               </a>
              </th>
@@ -592,76 +469,63 @@ ENDIF
         <!--end side by side to stacked content-->
      </td>
     </tr>
-    %%[endif]%%
-    %%[if @contentfive == "Y" then]%%
-    <tr>
-     <td valign="top" align="left">
-      
-     </td>
-    </tr>
-    %%[endif]%%
+
+
     <!-- start template footer -->
     <tr>
-     <td valign="top" align="left">
-      <table cellspacing="0" cellpadding="0" border="0" width="100%" bgcolor="#1b75bc" style="padding: 0; margin: 0;">
-       <tr>
-        <td bgcolor="#1b75bc" valign="middle" align="center" height="48" style="color:#FFFFFF; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 400; mso-line-height-rule:exactly; line-height:12px;">
-         <a alias="Products" href="%%=RedirectTo(@productsURL)=%%" target="_blank" style="text-decoration: none; color: #FFFFFF; font-weight: 400; ">Products</a> &bull; <a alias="How it works" href="%%=RedirectTo(@howItWorksURL)=%%" target="_blank" style="text-decoration: none; color: #FFFFFF; font-weight: 400; ">How it Works</a> &bull; <a alias="Success stories" href="%%=RedirectTo(@successStoriesURL)=%%" target="_blank" style="text-decoration: none; color: #FFFFFF; font-weight: 400; ">Success Stories</a><span class="hidden"> &bull; </span><br class="show" style="display: none;"><a alias="Recipes" href="%%=RedirectTo(@recipesURL)=%%" target="_blank" style="text-decoration: none; color: #FFFFFF; font-weight: 400; ">Recipes</a> &bull; <a alias="link - FAQ" href="%%=RedirectTo(@faqURL)=%%" target="_blank" style="text-decoration: none; color: #FFFFFF; font-weight: 400; ">FAQ</a> &bull; <a alias="Blog" href="%%=RedirectTo(@blogURL)=%%" target="_blank" style="text-decoration: none; color: #FFFFFF; font-weight: 400; ">Blog</a>
-        </td>
-        <td class="hidden" bgcolor="#d71b1b" valign="middle" align="center" height="26" width="205" style="padding: 11px 0; line-height: 10px;">
-         <a alias="desktop - Pinterest" href="%%=RedirectTo(@pinterestURL)=%%" target="_blank"><img width="28" height="28" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/634d516e-f7b3-4fb7-ab17-af643c4fd67f.png" alt="Pinterest" border="0" style="display: inline-block;"></a>
-         <a alias="desktop - Instagram" href="%%=RedirectTo(@instagramURL)=%%" target="_blank"><img width="28" height="28" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/a3389a98-faea-408c-91af-4e7a2ac33fc0.png" alt="Instagram" border="0" style="display: inline-block;"></a>
-         <a alias="desktop - Facebook" href="%%=RedirectTo(@facebookURL)=%%" target="_blank"><img width="28" height="28" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/21d1f5a5-6651-455c-8a87-2c05471c3ed9.png" alt="Facebook" border="0" style="display: inline-block;"></a>
-         <a alias="desktop - Twitter" href="%%=RedirectTo(@twitterURL)=%%" target="_blank"><img width="28" height="28" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/c48ccc58-8e8d-4d0f-ace0-4e57c97a471f.png" alt="Twitter" border="0" style="display: inline-block; "></a>
-         <a alias="desktop - YouTube" href="%%=RedirectTo(@youtubeURL)=%%" target="_blank"><img width="28" height="28" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/cf3b4957-7873-47b4-94e9-58146ed779f8.png" alt="Youtube" border="0" style="display: inline-block;"></a>
-        </td>
-       </tr>
-      </table>
-      <!--[if !mso]><!-->
-      <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
-       <tr>
-        <td class="show" valign="top" align="center" bgcolor="#FFFFFF" width="100%" style="padding: 10px 0; display: none;">
-         <a alias="mobile - Pinterest" href="%%=RedirectTo(@pinterestURL)=%%" target="_blank"><img width="26" height="26" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/350c9515-00ec-4f5f-b1d9-c02d286770bc.png" alt="Pinterest" border="0" style="display: inline-block; padding-right: 5px;"></a>
-         <a alias="mobile - Instagram" href="%%=RedirectTo(@instagramURL)=%%" target="_blank"><img width="26" height="26" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/4a71412c-6947-4648-9693-953e5f8af1a5.png" alt="Instagram" border="0" style="display: inline-block; padding-right: 5px; padding-right: 5px;"></a>
-         <a alias="mobile - Facebook" href="%%=RedirectTo(@facebookURL)=%%" target="_blank"><img width="26" height="26" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/65b394d5-a0e9-4a1c-af3a-3bffcfed1357.png" alt="Facebook" border="0" style="display: inline-block; padding-right: 5px;"></a>
-         <a alias="mobile - Twitter" href="%%=RedirectTo(@twitterURL)=%%" target="_blank"><img width="26" height="26" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/8688c54a-797e-4dad-bf0b-503bd8945aae.png" alt="Twitter" border="0" style="display: inline-block; padding-right: 5px;"></a>
-         <a alias="mobile - YouTube" href="%%=RedirectTo(@youtubeURL)=%%" target="_blank"><img width="26" height="26" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/ddeadf63-1c87-48d6-bb35-dfe7ae46c2fb.png" alt="Youtube" border="0" style="display: inline-block;"></a>
-        </td>
-       </tr>
-      </table>
-      <!--<![endif]-->
-     </td>
-    </tr>
-    <!-- End template footer -->
-    %%[if @contentsix == "Y" then]%%
+      <td valign="top" align="left">
+       <table cellspacing="0" cellpadding="0" border="0" width="100%" bgcolor="#1b75bc" style="padding: 0; margin: 0;">
+        <tr>
+         <td bgcolor="#1b75bc" valign="middle" align="center" height="48" style="color:#FFFFFF; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 400; mso-line-height-rule:exactly; line-height:12px;">
+          <a alias="Products" href="https://www.atkins.com/products" target="_blank" style="text-decoration: none; color: #FFFFFF; font-weight: 400; ">Products</a> &bull; <a alias="How it works" href="https://www.atkins.com/how-it-works" target="_blank" style="text-decoration: none; color: #FFFFFF; font-weight: 400; ">How it Works</a> &bull; <a alias="Success stories" href="https://www.atkins.com/success-stories" target="_blank" style="text-decoration: none; color: #FFFFFF; font-weight: 400; ">Success Stories</a><span class="hidden"> &bull; </span><br class="show" style="display: none;"><a alias="Recipes" href="https://www.atkins.com/recipes" target="_blank" style="text-decoration: none; color: #FFFFFF; font-weight: 400; ">Recipes</a> &bull; <a alias="link - FAQ" href="https://www.atkins.com/how-it-works/faqs/atkins20-faq" target="_blank" style="text-decoration: none; color: #FFFFFF; font-weight: 400; ">FAQ</a> &bull; <a alias="Blog" href="https://www.atkins.com/colette-heimowitz" target="_blank" style="text-decoration: none; color: #FFFFFF; font-weight: 400; ">Blog</a>
+         </td>
+         <td class="hidden" bgcolor="#d71b1b" valign="middle" align="center" height="26" width="205" style="padding: 11px 0; line-height: 10px;">
+          <a alias="desktop - Pinterest" href="https://www.pinterest.com/atkinsnutritionals/" target="_blank"><img width="28" height="28" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/634d516e-f7b3-4fb7-ab17-af643c4fd67f.png" alt="Pinterest" border="0" style="display: inline-block;"></a>
+          <a alias="desktop - Instagram" href="https://www.instagram.com/atkinsnutritionals/" target="_blank"><img width="28" height="28" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/a3389a98-faea-408c-91af-4e7a2ac33fc0.png" alt="Instagram" border="0" style="display: inline-block;"></a>
+          <a alias="desktop - Facebook" href="https://www.facebook.com/AtkinsNutritionals" target="_blank"><img width="28" height="28" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/21d1f5a5-6651-455c-8a87-2c05471c3ed9.png" alt="Facebook" border="0" style="display: inline-block;"></a>
+          <a alias="desktop - Twitter" href="https://twitter.com/atkinsinsider" target="_blank"><img width="28" height="28" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/c48ccc58-8e8d-4d0f-ace0-4e57c97a471f.png" alt="Twitter" border="0" style="display: inline-block; "></a>
+          <a alias="desktop - YouTube" href="https://www.youtube.com/user/AtkinsNutritionals" target="_blank"><img width="28" height="28" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/cf3b4957-7873-47b4-94e9-58146ed779f8.png" alt="Youtube" border="0" style="display: inline-block;"></a>
+         </td>
+        </tr>
+       </table>
+       <!--[if !mso]><!-->
+       <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+        <tr>
+         <td class="show" valign="top" align="center" bgcolor="#FFFFFF" width="100%" style="padding: 10px 0; display: none;">
+          <a alias="mobile - Pinterest" href="https://www.pinterest.com/atkinsnutritionals/" target="_blank"><img width="26" height="26" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/350c9515-00ec-4f5f-b1d9-c02d286770bc.png" alt="Pinterest" border="0" style="display: inline-block; padding-right: 5px;"></a>
+          <a alias="mobile - Instagram" href="https://www.instagram.com/atkinsnutritionals/" target="_blank"><img width="26" height="26" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/4a71412c-6947-4648-9693-953e5f8af1a5.png" alt="Instagram" border="0" style="display: inline-block; padding-right: 5px; padding-right: 5px;"></a>
+          <a alias="mobile - Facebook" href="https://www.facebook.com/AtkinsNutritionals" target="_blank"><img width="26" height="26" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/65b394d5-a0e9-4a1c-af3a-3bffcfed1357.png" alt="Facebook" border="0" style="display: inline-block; padding-right: 5px;"></a>
+          <a alias="mobile - Twitter" href="https://twitter.com/atkinsinsider" target="_blank"><img width="26" height="26" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/8688c54a-797e-4dad-bf0b-503bd8945aae.png" alt="Twitter" border="0" style="display: inline-block; padding-right: 5px;"></a>
+          <a alias="mobile - YouTube" href="https://www.youtube.com/user/AtkinsNutritionals" target="_blank"><img width="26" height="26" src="https://image.reply.atkins.com/lib/fe3d15707564047a721671/m/2/ddeadf63-1c87-48d6-bb35-dfe7ae46c2fb.png" alt="Youtube" border="0" style="display: inline-block;"></a>
+         </td>
+        </tr>
+       </table>
+       <!--<![endif]-->
+      </td>
+     </tr>
+     <!-- End template footer -->
+
     <tr>
      <td valign="top" align="left">
       
      </td>
     </tr>
-    %%[endif]%%
-    %%[if @contentseven == "Y" then]%%
-    <tr>
-     <td valign="top" align="left">
-      
-     </td>
-    </tr>
-    %%[endif]%%
+
     <tr>
      <td valign="top" align="left">
       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="resizetofull">
        <tr>
-        <td valign="top" align="left" style="color:#353535; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 400; mso-line-height-rule:exactly; line-height:16px; padding: 20px;" class="">Atkins is committed to facilitating the accessibility and usability of content in its customer emails. While Atkins has undertaken efforts to improve the accessibility of this email, some content may not be accessible to certain users. If you have questions or concerns regarding the accessibility of this email, please <a href="%%=RedirectTo(@contactUsURL)=%%" alias="Footer-ContactUs1" target="_blank" style="text-decoration: underline; color:#1b75bc;">contact&nbsp;us</a>.</td>
+        <td valign="top" align="left" style="color:#353535; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 400; mso-line-height-rule:exactly; line-height:16px; padding: 20px;" class="">Atkins is committed to facilitating the accessibility and usability of content in its customer emails. While Atkins has undertaken efforts to improve the accessibility of this email, some content may not be accessible to certain users. If you have questions or concerns regarding the accessibility of this email, please <a href="https://www.atkins.com/contact-us" alias="Footer-ContactUs1" target="_blank" style="text-decoration: underline; color:#1b75bc;">contact&nbsp;us</a>.</td>
        </tr>
        <tr>
         <td valign="top" align="center" style="font-family: Helvetica, Arial, 'sans-serif'; mso-line-height-rule:exactly; line-height: 18px; font-size: 12px; font-weight: 400; color: #333333; padding: 0 10px;" class="">
-         <a alias="Preferences" href="%%=CloudPagesURL(1502)=%%" target="_blank" style="text-decoration: underline; color: #1b75bc;">Preferences</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a alias="Unsubscribe" href="%%=CloudPagesURL(1502)=%%" target="_blank" style="text-decoration: underline; color: #1b75bc;">Newsletter Unsubscribe</a>&nbsp;&nbsp;<span class="hidden">|&nbsp;&nbsp;</span> <a alias="Privacy" href="%%=RedirectTo(@privacyPolicyURL)=%%" target="_blank" style="text-decoration: underline; color: #1b75bc; white-space: nowrap;">Privacy Policy</a>&nbsp;&nbsp;<span class="mobile-hide">|&nbsp;&nbsp;</span> <br style="display: none;" class="mobile-show"><br style="display: none;" class="mobile-show"><a alias="Terms and Condition" href="%%=RedirectTo(@termsConditionsURL)=%%" target="_blank" style="text-decoration: underline; color: #1b75bc;">Terms &amp; Conditions</a>&nbsp;&nbsp;<span class="mobile-hide">|&nbsp;&nbsp;</span> <a alias="Footer - Contact Us" href="%%=RedirectTo(@contactUsURL)=%%" target="_blank" style="text-decoration: underline; color: #1b75bc;">Contact&nbsp;Us</a><br><br>
+         <a alias="Preferences" href="https://cloud.reply.atkins.com/Preferences?qs=f09c18161575021fd39f8fe5ab55991a09a49bab8ca69bbd5ccf6cc646a850ea9d5677497befec4a66da94a5556896bee7e38c479fe46fab" target="_blank" style="text-decoration: underline; color: #1b75bc;">Preferences</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a alias="Unsubscribe" href="https://cloud.reply.atkins.com/Preferences?qs=f09c18161575021fd39f8fe5ab55991a09a49bab8ca69bbd5ccf6cc646a850ea9d5677497befec4a66da94a5556896bee7e38c479fe46fab" target="_blank" style="text-decoration: underline; color: #1b75bc;">Newsletter Unsubscribe</a>&nbsp;&nbsp;<span class="hidden">|&nbsp;&nbsp;</span> <a alias="Privacy" href="https://www.atkins.com/privacy-policy" target="_blank" style="text-decoration: underline; color: #1b75bc; white-space: nowrap;">Privacy Policy</a>&nbsp;&nbsp;<span class="mobile-hide">|&nbsp;&nbsp;</span> <br style="display: none;" class="mobile-show"><br style="display: none;" class="mobile-show"><a alias="Terms and Condition" href="https://www.atkins.com/terms-of-use" target="_blank" style="text-decoration: underline; color: #1b75bc;">Terms &amp; Conditions</a>&nbsp;&nbsp;<span class="mobile-hide">|&nbsp;&nbsp;</span> <a alias="Footer - Contact Us" href="https://www.atkins.com/contact-us" target="_blank" style="text-decoration: underline; color: #1b75bc;">Contact&nbsp;Us</a><br><br>
         </td>
        </tr>
        <tr>
         <td valign="top" align="center" style="font-family: Helvetica, Arial, 'sans-serif'; mso-line-height-rule:exactly; line-height: 18px; font-size: 12px; font-weight: 400; color: #333333; padding: 0 18px 20px;" class="">
-         %%Member_Busname%% <br style="display:none;" class="show">%%Member_Addr%%<span class="hidden">,</span> <br style="display:none;" class="show">%%Member_City%%, %%Member_State%% %%Member_PostalCode%%<br>
-         &copy; %%xtyear%% Atkins. All Rights Reserved.
+          Simply Good Foods USA, Inc. <br style="display:none;" class="show">1225 17th Street, Suite 1000<span class="hidden">,</span> <br style="display:none;" class="show">Denver, CO 80202<br>
+         &copy; 2022 Atkins. All Rights Reserved.
         </td>
        </tr>
       </table>

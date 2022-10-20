@@ -224,107 +224,13 @@ tbody p {
  <tr>
   <td valign="top" align="center"><table width="600" border="0" cellspacing="0" cellpadding="0" class="resizetofull">
     <tr>
-     <td valign="top" align="left" style="font-size: 12px; color:#666666;">%%[ 
-      var @Web_ID 
-      var @Email_Name 
-      
-      set @Web_ID = Web_ID 
-      set @job = jobid 
-      set @listid = listid 
-      set @batchid = _JobSubscriberBatchID 
-      set @mid = memberid 
-      set @Email_Name = emailname_ 
-      
-      var @tracking 
-      set @tracking = concat('ch=emld&cid=emld|email|', jobid, '|', subscriberid, '||') 
-      
-      var @fullname 
-      var @optOutLink 
-      var @prefCenterLink 
-      
-      var @subid 
-      set @subid = subscriberid 
-      if NOT EMPTY(AttributeValue("Full_Name")) 
-      THEN set @fullname = AttributeValue("Full_Name") 
-      ELSE ENDIF 
-      
-      set @skey = _subscriberkey 
-      
-      set @optOutLink = concat('https://pages.mtbemail.com/preference_center?email=', emailaddr, '&fullname=', @fullname, '&unsublink=true', '&subid=', @subid, '&skey=', @skey,'&job=', @job,'&listid=',@listid,'&batchid=',@batchid,'&mid=',@mid,'&', @tracking ) 
-      set @prefCenterLink = concat('https://pages.mtbemail.com/preference_center/?email=', emailaddr, '&fullname=', @fullname, '&subid=', @subid, '&skey=', @skey,'&job=', @job, '&listid=',@listid,'&batchid=',@batchid,'&mid=',@mid,'&', @tracking ) 
-      ]%% </td>
+     <td valign="top" align="left" style="font-size: 12px; color:#666666;"> </td>
     </tr>
     <tr>
      <td valign="top" align="left" style="font-size:12px; color:#000001;"></td>
     </tr>
     <tr>
-     <td valign="top" align="left" style="font-size:12px; color:#000001;">%%[
-/*READ: DYNAMIC TEMPLATE INSTRUCTIONS*/
-/*USE "Yes","No" or "None" TO TOGGLE THE FOLLOWING VARIABLE. CHECK CWS*/
-  set @Advertisement = "yes" /* Use "none" here if there's a Custom Banner*/
-  set @CustomBanner = "no"
-  set @CustomBannerAd = "no"
-  set @FooterBar = "yes" 
-  set @EmailPreferences = "yes"
-  set @AppStoreIcons = "yes"
-  
-/*READ: FOOTERBAR AND SOCIALICONS CAN BE HIDDEN ON SPECIAL TEMPLATES LIKE
-LIKE RETAIL, TREASURE, AND COMMERCIAL TO USE SET TO "YES".*/
-
-  set @SocialIcons = "no"
-  set @FooterBar_and_SocialIcons = "no"
-
-
-/*READ: CAPITALIZE FRIST NAME INSTRUCTIONS*/
-/*YOU MIGHT NEED TO RENAME @FIRST_NAME TO FULL_NAME. CHECK DATA EXTENSION*/
-/*REMOVE COMMENTS TAGS AFTER CONFIRMING THERE'S NEED FOR THIS SOLUTION.*/ 
-
-  set @First_Name = Trim(ProperCase(First_Name))
-
-  set @index = IndexOf(@First_Name,'-')
-  set @length = Length(@First_Name)
-
-  if @index > 0 then
-  set @part1 = Substring(@First_Name,0,@index)
-  set @index = Add(@index, 1)
-  set @part2 = ProperCase(Substring(@First_Name, @index, @length))
-  set @First_Name = Concat(@part1,@part2)
-  endif
-
-
-/*READ: RAISE ERROR INSTRUCTIONS*/
-/*REMOVE COMMENTS TAGS AFTER ADDING CREATIVE TYPE. IGNORE OTHERWISE*/
-
-if Creative_Type == "EMA" OR Creative_Type == "EMB" OR Creative_Type == "EMAC" OR Creative_Type == "EMBC" OR Creative_Type == "EMAT" OR Creative_Type == "EMBT" then
-  else RaiseError("Creative_Type not recognized.", true)
-  endif
-
-  set @Creative_Type = Creative_Type
-  set @campaignID = "40H"
-  set @smartID = "CLMA614"
-  set @CTALink = "CTALink"
-  set @BodyLink = "BodyLink"
-
-set @CTA_Link = concat(CTALink,"?",@tracking)
-set @Body_Link = concat(BodyLink,"?",@tracking)*/
-
-  if Creative_Type == "EMA" OR Creative_Type == "EMAC" OR Creative_Type == "EMB" OR Creative_Type == "EMBC" then
-  set @subjectline = "Are your retirement savings ahead of the pack or falling behind?"
-  elseif Creative_Type == "EMAT" then
-    if EMPTY(@First_Name) then
-      set @subjectline = "See retirement savings add up."
-    else 
-    set @subjectline = concat(@First_Name,', see retirement savings add up.')
-    endif
-   elseif Creative_Type == "EMBT" then
-   set @subjectline = "See retirement savings add up."
-  endif
- endif
-
-  if recip_type == "proof" then
-    set @subjectline = concat("[",@campaignID,"-",Creative_Type,"-",@smartID,"-",recip_type,"-",emailtype,"] ",@subjectline)
-  endif
-]%%
+     <td valign="top" align="left" style="font-size:12px; color:#000001;">
 </td>
     </tr>
    </table></td>
@@ -339,35 +245,20 @@ set @Body_Link = concat(BodyLink,"?",@tracking)*/
     <table width="600" border="0" cellspacing="0" cellpadding="0" class="resizetofull" bgcolor="#FFFFFF" style="width:600px;">
      <tr>
       <td valign="top" align="center" style="font-size:10px;">
-        %%[if @Seed_MSG_Field == "yes" then]%%
-        <table width="600"  bgcolor="#7D8A9A" border="0" cellspacing="0" cellpadding="0" style="font-family: arial, sans-serif; width:600px;" class="resizetofull">
-          <tr>
-            <td valign="top" align="center" style="font-family:Arial, sans-serif; font-size:12px; color:#ffffff;padding-top:10px; padding-bottom:10px;">ATTENTION FINANCIAL ADVISOR
-              <br/>
-              %%=v(@Seed_Message)=%%
-            </td>
-          </tr>
-        </table>
-        %%[else]%% %%[endif]%%
+
       </td>
      </tr>
      <tr>
       <td valign="top" align="left" style="padding-left:20px; padding-right:20px; padding-bottom:5px; padding-top:8px;"><table width="560" border="0" cellspacing="0" cellpadding="0" style="font-family: arial, sans-serif; width:560px;" class="resizetofull">
         <tr>
          <td width="330" valign="top" align="left" style="font-family:Arial, sans-serif; font-size:10px; color:#666666;"><table>
- %%[if Creative_Type == "EMA" OR Creative_Type == "EMAC" OR Creative_Type == "EMB" OR Creative_Type == "EMBC"then]%%
+
   <tr>
     <td style="font-family:Arial, sans-serif; font-size:10px; color:#666666" valign="top" align="left">
 Find out today with our retirement readiness<span>&nbsp;</span>checkup.
     </td>
   </tr>
- %%[elseif Creative_Type == "EMAT" OR Creative_Type == "EMBT" then]%%
-   <tr>
-    <td style="font-family:Arial, sans-serif; font-size:10px; color:#666666" valign="top" align="left">
-Take a minute to complete your retirement readiness<span>&nbsp;</span>checkup.
-    </td>
-  </tr>
- %%[endif]%%
+
 </table></td>
          <td width="230" class="mobile-hide" valign="top" align="right" style="font-family:Arial, sans-serif; font-size:10px; color:#666666;"><a href="%%view_email_url%%" alias="%%=v(@Creative_Type)=%%_LINK/VAWP" target="_blank" style="text-decoration:underline; color:#666666;">View as a webpage</a></td>
         </tr>
@@ -376,22 +267,11 @@ Take a minute to complete your retirement readiness<span>&nbsp;</span>checkup.
      <tr>
       <td valign="top" align="left" style="padding-bottom:0px;"><table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family: arial, sans-serif;" class="resizetofull">
         <tr>
-         <td valign="top" align="left" style="background-color:#ffffff;font-family:Arial, sans-serif; font-size:10px; color:#666666;"><a href="https://www.mtb.com/investments-insurance?%%=v(@tracking)=%%" alias="%%=v(@Creative_Type)=%%_IMG/header logo"> %%[if @Advertisement == "yes" then]%% <img src="https://image.mtbemail.com/lib/fe97137075640c7d7c/m/2/4c8b9a7c-c56c-4dd3-af77-32fe7908caec.jpg" width="600" height="80" class="mobile-hide resizetofull" style="display:block;" alt="M&amp;T Securities, Inc. | Understanding what's important&#x000AE;" title="M&amp;T Securities, Inc. | Understanding what's important&#x000AE;" border="0" /> 
+         <td valign="top" align="left" style="background-color:#ffffff;font-family:Arial, sans-serif; font-size:10px; color:#666666;"><a href="https://www.mtb.com/investments-insurance?%%=v(@tracking)=%%" alias="%%=v(@Creative_Type)=%%_IMG/header logo">  <img src="https://image.mtbemail.com/lib/fe97137075640c7d7c/m/2/4c8b9a7c-c56c-4dd3-af77-32fe7908caec.jpg" width="600" height="80" class="mobile-hide resizetofull" style="display:block;" alt="M&amp;T Securities, Inc. | Understanding what's important&#x000AE;" title="M&amp;T Securities, Inc. | Understanding what's important&#x000AE;" border="0" /> 
           <!--[if !mso]><!--> 
           <img src="https://image.mtbemail.com/lib/fe97137075640c7d7c/m/2/967182b8-3fee-4606-95fe-cbd8893c0179.jpg" width="360" height="97" border="0" style="display:none;" class="mobile-show resizetofull" alt="M&amp;T Securities, Inc. | Understanding what's important&#x000AE;" /> 
           <!--<![endif]--> 
-          %%[elseif @Advertisement == "no" then]%% <img src="https://image.mtbemail.com/lib/fe97137075640c7d7c/m/2/a7ea2c09-f162-4617-8065-12eef1e9c196.jpg" width="600" height="80" class="mobile-hide resizetofull" style="display:block;" alt="M&amp;T Securities, Inc." title="M&amp;T Securities, Inc." border="0" /> 
-          <!--[if !mso]><!--> 
-          <img src="https://image.mtbemail.com/lib/fe97137075640c7d7c/m/2/381db564-23cf-4c4e-905f-85463c80e17c.jpg" width="360" height="80" border="0" style="display:none;" class="mobile-show resizetofull" alt="M&amp;T Securities, Inc." /> 
-          <!--<![endif]--> 
-          %%[elseif @Advertisement == "none" then]%% %%[endif]%% </a> %%[if @CustomBanner == "yes" then]%%
-          <a href="https://www.mtb.com/investments-insurance?%%=v(@tracking)=%%" alias="%%=v(@Creative_Type)=%%_IMG/header logo">
-  <img src="https://via.placeholder.com/600x80/096340/FFFFFF?text=Custom+Banner" width="600" border="0" style="display:block;" class="mobile-hide resizetofull" alt="M&T Securities, Inc." title="M&T Securities, Inc."/>
-  <!--[if !mso]><!-->
-  <img src="https://via.placeholder.com/360x75/096340/FFFFFF?text=Mobile+Custom+Banner" width="360" height="75" border="0" style="display:none;" class="mobile-show resizetofull" alt="M&T Securities, Inc." title="M&T Securities, Inc."/>
-  <!--<![endif]-->
-</a>
-          %%[elseif @CustomBanner == "no" then]%% %%[endif]%% </td>
+         </td>
         </tr>
        </table></td>
      </tr>
@@ -428,7 +308,7 @@ Take a minute to complete your retirement readiness<span>&nbsp;</span>checkup.
  </tr>
  <tr>
   <td style="font-family: Arial, sans-serif; font-size:14px; font-weight: normal; color: #020202; line-height:18px; padding-top: 10px; padding-right:20px; padding-left:20px;" valign="top" align="left">
-   With the help of our <a href="%%=RedirectTo(@Body_Link)=%%" target="_blank" style="text-decoration:underline;" alias="%%=v(@Creative_Type)=%%_retirement readiness" >retirement readiness checkup</a>, we can show you where you stand among others in the race &mdash; letting you know if you're on track or need to catch up. Plus, we'll provide personalized recommendations to increase your savings &mdash; all so you can finish<span>&nbsp;</span>strong. 
+   With the help of our <a href="https://locations.mtb.com/?ch=emld&cid=emld|email|88859|12607328||" target="_blank" style="text-decoration:underline;" alias="%%=v(@Creative_Type)=%%_retirement readiness" >retirement readiness checkup</a>, we can show you where you stand among others in the race &mdash; letting you know if you're on track or need to catch up. Plus, we'll provide personalized recommendations to increase your savings &mdash; all so you can finish<span>&nbsp;</span>strong. 
    </td>
  </tr>
   <tr>
@@ -452,7 +332,7 @@ Take a minute to complete your retirement readiness<span>&nbsp;</span>checkup.
       <!--Start CTA button-->
       <table cellpadding="0" cellspacing="0" border="0" width="200" bgcolor="#ffb300" style="width:200px;">
        <tr>
-        <td align="center" valign="middle" width="200" style="font-family: Arial,Helvetica, sans-serif; line-height:20px; font-weight:bold; font-size:14px; padding:10px 5px 11px 5px; color:#ffffff; background-color:#ffb300; width: 200px;"><a href="%%=RedirectTo(@CTA_Link)=%%" target="_blank" alias="%%=v(@Creative_Type)=%%_start checkup" style="text-decoration:none; color:#020202;">Start Checkup</a></td>
+        <td align="center" valign="middle" width="200" style="font-family: Arial,Helvetica, sans-serif; line-height:20px; font-weight:bold; font-size:14px; padding:10px 5px 11px 5px; color:#ffffff; background-color:#ffb300; width: 200px;"><a href="https://www3.mtb.com/?ch=emld&cid=emld|email|88859|12607328||" target="_blank" alias="%%=v(@Creative_Type)=%%_start checkup" style="text-decoration:none; color:#020202;">Start Checkup</a></td>
        </tr>
       </table>
       <!--End CTA button-->
@@ -471,7 +351,7 @@ Take a minute to complete your retirement readiness<span>&nbsp;</span>checkup.
         <tr>
          <td valign="top" bgcolor="#007855" class="resizetofull"><table align="center" width="100%" class="resizetofull textcenter" border="0" cellspacing="0" cellpadding="0" bgcolor="#007855">
            <tr>
-            <td valign="top" align="center" class="textcenter" style="font-family:Arial, sans-serif; font-size:13px; color:#FFFFFF; font-weight:bold; padding-top:10px; padding-bottom:10px;">%%[if @FooterBar == "yes" then]%%<a href="https://www.mtb.com/investments-insurance/contact-us?%%=v(@tracking)=%%" target="_blank" alias="%%=v(@Creative_Type)=%%_FOOTER/Contact Us" style="text-decoration:none; color:#FFFFFF;">CONTACT US</a> <span>&nbsp;</span><span>&nbsp;</span> <span class="mobile-hide"><span>&nbsp;</span><span>&nbsp;</span></span>|<span>&nbsp;</span><span>&nbsp;</span> <span class="mobile-hide"><span>&nbsp;</span><span>&nbsp;</span></span> <a href="https://locations.mtb.com?%%=v(@tracking)=%%" target="_blank" alias="%%=v(@Creative_Type)=%%_FOOTER/Locations" style="text-decoration:none; color:#FFFFFF;">LOCATIONS</a><span>&nbsp;</span><span>&nbsp;</span> <span class="mobile-hide"><span>&nbsp;</span><span>&nbsp;</span></span>%%[if @EmailPreferences == "yes" then]%%|<span>&nbsp;</span><span>&nbsp;</span> <span class="mobile-hide"><span>&nbsp;</span><span>&nbsp;</span></span> <a href="https://www.mtb.com/banking/online-mobile-services?%%=v(@tracking)=%%" target="_blank" alias="%%=v(@Creative_Type)=%%_FOOTER/Online Banking" style="text-decoration:none; color:#FFFFFF;">ONLINE BANKING</a><span>&nbsp;</span><span>&nbsp;</span> <span class="mobile-hide"><span>&nbsp;</span><span>&nbsp;</span></span>|<span>&nbsp;</span><span>&nbsp;</span> <span class="mobile-hide"><span>&nbsp;</span><span>&nbsp;</span></span> <a href="%%=RedirectTo(@prefCenterLink)=%%" target="_blank" alias="%%=v(@Creative_Type)=%%_FOOTER/Email Preferences" style="text-decoration:none; color:#FFFFFF;">EMAIL PREFERENCES</a>%%[else]%% %%[endif]%% %%[else]%% %%[endif]%%</td>
+            <td valign="top" align="center" class="textcenter" style="font-family:Arial, sans-serif; font-size:13px; color:#FFFFFF; font-weight:bold; padding-top:10px; padding-bottom:10px;"><a href="https://www.mtb.com/investments-insurance/contact-us?%%=v(@tracking)=%%" target="_blank" alias="%%=v(@Creative_Type)=%%_FOOTER/Contact Us" style="text-decoration:none; color:#FFFFFF;">CONTACT US</a> <span>&nbsp;</span><span>&nbsp;</span> <span class="mobile-hide"><span>&nbsp;</span><span>&nbsp;</span></span>|<span>&nbsp;</span><span>&nbsp;</span> <span class="mobile-hide"><span>&nbsp;</span><span>&nbsp;</span></span> <a href="https://locations.mtb.com?%%=v(@tracking)=%%" target="_blank" alias="%%=v(@Creative_Type)=%%_FOOTER/Locations" style="text-decoration:none; color:#FFFFFF;">LOCATIONS</a><span>&nbsp;</span><span>&nbsp;</span> <span class="mobile-hide"><span>&nbsp;</span><span>&nbsp;</span></span>|<span>&nbsp;</span><span>&nbsp;</span> <span class="mobile-hide"><span>&nbsp;</span><span>&nbsp;</span></span> <a href="https://www.mtb.com/banking/online-mobile-services?%%=v(@tracking)=%%" target="_blank" alias="%%=v(@Creative_Type)=%%_FOOTER/Online Banking" style="text-decoration:none; color:#FFFFFF;">ONLINE BANKING</a><span>&nbsp;</span><span>&nbsp;</span> <span class="mobile-hide"><span>&nbsp;</span><span>&nbsp;</span></span>|<span>&nbsp;</span><span>&nbsp;</span> <span class="mobile-hide"><span>&nbsp;</span><span>&nbsp;</span></span> <a href="%%=RedirectTo(@prefCenterLink)=%%" target="_blank" alias="%%=v(@Creative_Type)=%%_FOOTER/Email Preferences" style="text-decoration:none; color:#FFFFFF;">EMAIL PREFERENCES</a></td>
            </tr>
           </table></td>
         </tr>
@@ -482,7 +362,7 @@ Take a minute to complete your retirement readiness<span>&nbsp;</span>checkup.
      <tr>
       <td valign="top" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-         <td valign="top" bgcolor="#EDEDED" class="resizetofull" style="font-family:Arial, sans-serif; font-size:10px; color:#666666;"><!-- MOBILE 1 -->%%[if @AppStoreIcons == "yes" then]%%
+         <td valign="top" bgcolor="#EDEDED" class="resizetofull" style="font-family:Arial, sans-serif; font-size:10px; color:#666666;"><!-- MOBILE 1 -->
           <table align="left" width="267" class="resizetofull textcenter" border="0" cellspacing="0" cellpadding="0">
            <tr>
             <td valign="top" align="left" class="textcenter" style="padding-top:25px;"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="iconWidth">
@@ -496,7 +376,7 @@ Take a minute to complete your retirement readiness<span>&nbsp;</span>checkup.
              </table></td>
            </tr>
           </table>
-          %%[elseif @AppStoreIcons == "no" then]%% %%[endif]%% 
+        
           <!-- MOBILE 2 -->
           
           <table align="center" width="329" class="resizetofull textcenter" border="0" cellspacing="0" cellpadding="0">
@@ -549,15 +429,15 @@ Take a minute to complete your retirement readiness<span>&nbsp;</span>checkup.
       <strong>PROTECT YOUR PERSONAL<span>&nbsp;</span>INFORMATION</strong> <br />
       M&amp;T Securities does NOT initiate emails seeking personal information such as account numbers, card PINs and Social Security numbers. If you receive a suspicious email, please forward it, as an attachment, to us at <a style="color: #000001; text-decoration: underline;" title="" href="mailto:phishing@mtb.com" alias="%%=v(@Creative_Type)=%%_link/phishing-email">phishing@mtb.com</a>. For more fraud prevention tips, visit our <a style="color: #000001;text-decoration: underline;" href="https://www.mtb.com/help-center/banking-security?%%=v(@tracking)=%%" alias="%%=v(@Creative_Type)=%%_link/Security Center" target="_blank">Security Center</a>. You can also view our <a style="color: #000001;text-decoration: underline;" href="https://www.mtb.com/help-center/policies/privacy-policy?%%=v(@tracking)=%%" alias="%%=v(@Creative_Type)=%%_link/Privacy Policy" target="_blank">Privacy<span>&nbsp;</span>Policy</a>. <br />
       <br />
-      %%[if @EmailPreferences == "yes" then]%% <strong>UPDATE YOUR EMAIL PREFERENCES</strong> <br />
-      This email was sent to <a style="color: #000001; text-decoration: underline; cursor:text;" href="#">%%emailaddr%%</a>. If you'd like to update your email preferences, please visit our <a style="color: #000001;text-decoration: underline;" title="" href="%%=RedirectTo(@prefCenterLink)=%%" alias="%%=v(@Creative_Type)=%%_link/Email Preference Center" target="_blank">Email Preference Center</a>. To ensure proper delivery to your inbox, please add <a style="color: #000001; text-decoration: none; cursor:text;" href="#">MandTSecurities@mtbemail.com</a> to your email address<span>&nbsp;</span>book. <br />
+      <strong>UPDATE YOUR EMAIL PREFERENCES</strong> <br />
+      This email was sent to <a style="color: #000001; text-decoration: underline; cursor:text;" href="#">fakeemail@gmail.com</a>. If you'd like to update your email preferences, please visit our <a style="color: #000001;text-decoration: underline;" title="" href="https://www3.mtb.com/help-center/policies/unsubscribe-mt-emails" alias="%%=v(@Creative_Type)=%%_link/Email Preference Center" target="_blank">Email Preference Center</a>. To ensure proper delivery to your inbox, please add <a style="color: #000001; text-decoration: none; cursor:text;" href="#">MandTSecurities@mtbemail.com</a> to your email address<span>&nbsp;</span>book. <br />
       <br />
-      %%[else]%% %%[endif]%% <strong>HOW TO UNSUBSCRIBE</strong> <br />
-      %%[if @Advertisement == "yes" OR @CustomBannerAd == "yes" then]%%<em>This is an advertisement from M&amp;T Securities, Inc</em>. %%[else]%% %%[endif]%% As a subscriber of our email list, you can be among the first to know about special offers and promotions from M&amp;T Securities via email. Of course, if you choose not to receive emails from M&amp;T Securities, you can <a style="color:#000001; text-decoration: underline;" title="" href="%%=RedirectTo(@optOutLink)=%%" alias="%%=v(@Creative_Type)=%%_link/UNSUBSCRIBE" target="_blank">UNSUBSCRIBE</a> or call <a href="tel:18007853162" style="color: #000001; text-decoration: underline;">1&#8209;800&#8209;785&#8209;3162</a> and we will remove you from our email list. Please note, if you choose to opt-out of email, you still may receive service and legal announcements as well as transactional emails regarding your M&amp;T account(s) in accordance with your M&amp;T service<span>&nbsp;</span>agreements. <br />
+     <strong>HOW TO UNSUBSCRIBE</strong> <br />
+   <em>This is an advertisement from M&amp;T Securities, Inc</em>.  As a subscriber of our email list, you can be among the first to know about special offers and promotions from M&amp;T Securities via email. Of course, if you choose not to receive emails from M&amp;T Securities, you can <a style="color:#000001; text-decoration: underline;" title="" href="https://www3.mtb.com/help-center/policies/unsubscribe-mt-emails" alias="%%=v(@Creative_Type)=%%_link/UNSUBSCRIBE" target="_blank">UNSUBSCRIBE</a> or call <a href="tel:18007853162" style="color: #000001; text-decoration: underline;">1&#8209;800&#8209;785&#8209;3162</a> and we will remove you from our email list. Please note, if you choose to opt-out of email, you still may receive service and legal announcements as well as transactional emails regarding your M&amp;T account(s) in accordance with your M&amp;T service<span>&nbsp;</span>agreements. <br />
       <br />
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
            <tr>
-            <td align="left" valign="middle" style="font-family:Arial, sans-serif; font-size:10px; color:#000001; padding-top:5px;">&copy;%%XTYEAR%% M&amp;T Securities, Inc. <br></td>
+            <td align="left" valign="middle" style="font-family:Arial, sans-serif; font-size:10px; color:#000001; padding-top:5px;">&copy;2021 M&amp;T Securities, Inc. <br></td>
            </tr>
           </table></td>
         </tr>

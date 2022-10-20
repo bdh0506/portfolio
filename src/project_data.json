@@ -30,8 +30,8 @@
         "logo": "https://i.imgur.com/5ZdOI1b.png",
         "emails": {
             "1": {
-                "name": "NES_IIIS",
-                "path": "/emails/NES_EM1.html"
+                "name": "Chase_27P",
+                "path": "/emails/Chase_EM1.html"
             }
         
         }
@@ -41,8 +41,12 @@
         "logo": "https://i.imgur.com/knU53dv.png",
         "emails": {
             "1": {
-                "name": "NES_IIIS",
-                "path": "/emails/NES_EM1.html"
+                "name": "MT_40H",
+                "path": "/emails/MT_EM1.html"
+            },
+            "2": {
+                "name": "MT_C25",
+                "path": "/emails/MT_EM2.html"
             }
         
         }
@@ -64,8 +68,12 @@
         "logo": "https://i.imgur.com/vFyAjNq.png",
         "emails": {
             "1": {
-                "name": "NES_IIIS",
-                "path": "/emails/NES_EM1.html"
+                "name": "ATK_1",
+                "path": "/emails/ATK_EM1.html"
+            },
+            "2": {
+                "name": "ATK_2",
+                "path": "/emails/ATK_EM2.html"
             }
         
         }

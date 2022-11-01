@@ -12,6 +12,8 @@ function Footer() {
         <div className="col-xxl-12">
           <a
             className="me-3"
+            rel="noreferrer"
+            target="_blank"
             href="https://www.linkedin.com/in/brandon-harmon-b763a211b/"
           >
             <img

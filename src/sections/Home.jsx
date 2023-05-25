@@ -12,7 +12,7 @@ function Home() {
           to tell you a little bit about myself, I&#39;m currently working as an
           Email Developer for Vetsource. I have been a professional developer
           for 7 years but I&#39;ve been developing software and building
-          PC&#39;s and electronics for the last 16 years. Front-end development
+          PC&#39;s and electronics for the last 17 years. Front-end development
           is my preferred workspace but I am capable of doing full stack work. I
           follow the motto that you should work to live, not live to work and so
           I try to find opportunities that support that lifestyle. When I&#39;m

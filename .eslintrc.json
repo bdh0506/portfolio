@@ -24,6 +24,7 @@
     "ignorePatterns": ["public/emails/*"],
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "no-console": "warn"
+        "no-console": "warn",
+        "linebreak-style": ["error", "windows"]
     }
 }

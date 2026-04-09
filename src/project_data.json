@@ -92,6 +92,15 @@
             }
         
         }
+    },"vs": {
+        "link": "vs",
+        "logo": "https://i.imgur.com/AGjVkmu.png",
+        "emails": {
+            "1": {
+                "name": "VS_News_Jan",
+                "path": "/emails/VS_EM1.html"
+            }
+        }
     },
     "websites": {
         "link": "websites",

@@ -25,32 +25,6 @@
         
         }
     },
-    "chase": {
-        "link": "chase",
-        "logo": "https://i.imgur.com/5ZdOI1b.png",
-        "emails": {
-            "1": {
-                "name": "Chase_27P",
-                "path": "/emails/Chase_EM1.html"
-            }
-        
-        }
-    },
-    "mtbank": {
-        "link": "mtbank",
-        "logo": "https://i.imgur.com/knU53dv.png",
-        "emails": {
-            "1": {
-                "name": "MT_40H",
-                "path": "/emails/MT_EM1.html"
-            },
-            "2": {
-                "name": "MT_C25",
-                "path": "/emails/MT_EM2.html"
-            }
-        
-        }
-    },
     "nespresso": {
         "link": "nespresso",
         "logo": "portfolio/nespresso.svg",
